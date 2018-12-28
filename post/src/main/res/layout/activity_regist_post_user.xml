@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".registration.RegistPostUserActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/img_int_temp"
+        android:contentDescription="@string/app_name"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B3000000"/>
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="104dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="124dp">
+
+            <ImageView
+                android:layout_width="104dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@drawable/logo_int_pst"/>
+
+            <ImageView
+                android:id="@+id/ivRotate"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@drawable/logo_int_o"/>
+
+        </RelativeLayout>
+
+        <!-- 생년 / 성별 레이아웃 -->
+        <LinearLayout
+            android:id="@+id/llBirthYearGenderLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:visibility="visible"
+            android:orientation="vertical"
+            android:paddingTop="76dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="80dp"
+                android:layout_marginStart="76dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvUserBirthYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center"
+                    android:text="@string/birth_year"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="13dp"/>
+
+                <TextView
+                    android:id="@+id/tvUserBirthYearBtn"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:alpha="0.3"
+                    android:gravity="center_vertical"
+                    android:text="@string/select"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="13dp"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <ToggleButton
+                    android:id="@+id/tgMaleBtn"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="8dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="end|center_vertical"
+                    android:textColor="@color/selector_male"
+                    android:textOff="@string/male"
+                    android:textOn="@string/male"
+                    android:textSize="13dp"/>
+
+                <ToggleButton
+                    android:id="@+id/tgFemaleBtn"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@android:color/transparent"
+                    android:gravity="end|center_vertical"
+                    android:textColor="@color/selector_female"
+                    android:textOff="@string/female"
+                    android:textOn="@string/female"
+                    android:textSize="13dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="212dp"
+                android:layout_height="1dp"
+                android:background="#1AFFFFFF"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="104dp"
+                android:alpha="0.6"
+                android:gravity="center"
+                android:text="@string/msg_regist_post_user_info"
+                android:textColor="#FFFFFFFF"
+                android:textSize="11dp"/>
+
+            <View
+                android:layout_width="212dp"
+                android:layout_height="1dp"
+                android:background="#1AFFFFFF"/>
+
+            <!-- 다음 -->
+            <LinearLayout
+                android:id="@+id/llRegNextBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="32dp"
+                android:alpha="0.2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="20dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/next"
+                    android:textColor="#FF00AFD5"
+                    android:textSize="13dp"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_arrow_blue"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginBottom="36dp"
+                android:orientation="horizontal">
+
+                <!-- 이전에 이용하던 누군가 입니다 -->
+                <LinearLayout
+                    android:id="@+id/llRegAlreadyBtn"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="20dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_man"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="20dp"
+                        android:alpha="0.6"
+                        android:gravity="center_vertical"
+                        android:text="@string/msg_regist_post_user_already"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="10dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Welcome 레이아웃 -->
+        <LinearLayout
+            android:id="@+id/llWelcomeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:paddingTop="76dp">
+
+            <com.melodigm.post.widget.LetterSpacingTextView
+                android:id="@+id/lstvWelcomeToPost"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:gravity="center"
+                android:textSize="13dp"
+                android:textColor="#FFFFCC4F"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/welcome_to_post"/>
+
+            <View
+                android:layout_width="212dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#1AFFFFFF"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="104dp"
+                android:alpha="0.6"
+                android:gravity="center"
+                android:text="@string/msg_welcome_to_post"
+                android:textColor="#FFFFFFFF"
+                android:textSize="11dp"/>
+
+            <View
+                android:layout_width="212dp"
+                android:layout_height="1dp"
+                android:background="#1AFFFFFF"/>
+
+            <!-- 시작하기 -->
+            <LinearLayout
+                android:id="@+id/llRegActionBtn"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="20dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/start_action"
+                    android:textColor="#FF00AFD5"
+                    android:textSize="13dp"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_arrow_blue"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:gravity="center"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="28dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvAgreeAllAgreement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#99FFFFFF"
+                    android:textSize="10dp"
+                    android:text="@string/msg_agree_all_agreement"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 데이터 복원 레이아웃 -->
+        <LinearLayout
+            android:id="@+id/llRestoreLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:paddingTop="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="28dp"
+                android:gravity="center"
+                android:text="@string/msg_select_restore_sns"
+                android:textSize="11dp"
+                android:textColor="#FFFFFFFF"
+                android:alpha="0.6"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:background="#1AFFFFFF"/>
+
+            <!-- 페이스북 -->
+            <LinearLayout
+                android:id="@+id/llSyncFacebookBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="onClick"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:tag="facebook">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_fb"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="0.6"
+                    android:text="@string/facebook"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+                <ImageView
+                    android:id="@+id/ivSyncFacebookCheckImage"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_chk_white"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:background="#1AFFFFFF"/>
+
+            <!-- 트위터 -->
+            <LinearLayout
+                android:id="@+id/llSyncTwitterBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="onClick"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:tag="twitter">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_twt"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="0.6"
+                    android:text="@string/twitter"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+                <ImageView
+                    android:id="@+id/ivSyncTwitterCheckImage"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_chk_white"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:background="#1AFFFFFF"/>
+
+            <!-- 인스타그램 -->
+            <LinearLayout
+                android:id="@+id/llSyncInstagramBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="onClick"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:tag="instagram">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_insta"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="0.6"
+                    android:text="@string/instagram"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+                <ImageView
+                    android:id="@+id/ivSyncInstagramCheckImage"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_chk_white"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:background="#1AFFFFFF"/>
+
+            <!-- 라인 -->
+            <LinearLayout
+                android:id="@+id/llSyncLineBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="onClick"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:tag="line">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_line"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="0.6"
+                    android:text="@string/line"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+                <ImageView
+                    android:id="@+id/ivSyncLineCheckImage"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_chk_white"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:background="#1AFFFFFF"/>
+
+            <!-- 확인 -->
+            <LinearLayout
+                android:id="@+id/llRestoreConfirmBtn"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="32dp"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="20dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/confirm"
+                    android:textColor="#FF00AFD5"
+                    android:textSize="13dp"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_arrow_blue"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/fbLoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <com.twitter.sdk.android.core.identity.TwitterLoginButton
+        android:id="@+id/twitterLoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+</RelativeLayout>

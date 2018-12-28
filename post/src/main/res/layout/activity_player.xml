@@ -1,0 +1,1453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:dslv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
+    tools:context=".PlayerActivity">
+
+    <!-- 배경화면 -->
+    <ImageView
+        android:id="@+id/ivPlayerBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"/>
+
+    <!-- 사연이 있는 노래의 앨범 이미지 배경화면 -->
+    <ImageView
+        android:id="@+id/ivPlayerAlbumBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"/>
+
+    <!-- 푸터 알파 영역 -->
+    <View
+        android:id="@+id/vContentFooterBG"
+        android:layout_width="match_parent"
+        android:layout_height="223dp"
+        android:layout_alignParentBottom="true"
+        android:background="#4D000000"/>
+
+    <!-- Content Layout -->
+    <LinearLayout
+        android:id="@+id/llContentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B3000000"
+        android:gravity="end"
+        android:orientation="vertical"
+        android:paddingBottom="68dp"
+        android:visibility="visible">
+
+        <!-- Header -->
+        <LinearLayout
+            android:id="@+id/llPlayerHeaderLayout"
+            android:layout_width="match_parent"
+            android:layout_height="73dp"
+            android:orientation="horizontal"
+            android:paddingTop="20dp">
+
+            <!-- Header > 뒤로가기 -->
+            <RelativeLayout
+                android:id="@+id/rlPlayerHeaderBack"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/bt_top_back"
+                    android:contentDescription="@string/app_name"/>
+
+            </RelativeLayout>
+
+            <!-- Header > 음질 -->
+            <LinearLayout
+                android:id="@+id/llPlayerHeaderQuality"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:alpha="0.5"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/streaming"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="9dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp">
+
+                    <TextView
+                        android:id="@+id/tvPlayerHeaderQuality"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/aac"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="9dp"
+                        android:fontFamily="@font/montserrat_regular"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <!-- Header > 검색 -->
+            <LinearLayout
+                android:id="@+id/llPlayerHeaderSearch"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/bt_top_search"
+                    android:contentDescription="@string/app_name"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 이용권 / 스토리 이동 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/llBuyUseCoupon"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:visibility="gone"
+                android:gravity="center_vertical"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/bt_ticket"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:gravity="center"
+                    android:text="@string/menu_use_coupon_30s"
+                    android:textColor="#80FFFFFF"
+                    android:textSize="9dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:id="@+id/llMoveStory"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:clickable="true"
+                android:gravity="right|center_vertical"
+                android:onClick="onClick"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:visibility="gone">
+
+                <com.melodigm.post.widget.LetterSpacingTextView
+                    android:id="@+id/lstvStoryType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:gravity="center"
+                    android:textColor="#FF00AFD5"
+                    android:textSize="9dp"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/arwright_white"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivOnAirIcon"
+                android:layout_width="48dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_onair_pop"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+        <!-- 스토리가 있는 노래 -->
+        <LinearLayout
+            android:id="@+id/llStoryLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llStoryContentEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:gravity="center"
+                    android:text="@string/msg_empty_story"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="21dp"/>
+
+                <View
+                    android:layout_width="44dp"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="8dp"
+                    android:alpha="0.5"
+                    android:background="#FFFFFFFF"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.8"
+                    android:gravity="center"
+                    android:text="@string/msg_empty_story_info"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="13dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llStoryContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <!-- 사연 제목 -->
+                <com.melodigm.post.widget.LetterSpacingTextView
+                    android:id="@+id/tvPostSubject"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:gravity="start|center"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="21dp"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+                <!-- POST / RADIO Under Line -->
+                <LinearLayout
+                    android:id="@+id/llPostRadioUnderLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <View
+                        android:layout_width="44dp"
+                        android:layout_height="1dp"
+                        android:background="#80FFFFFF"/>
+
+                </LinearLayout>
+
+                <!-- TODAY Under Line -->
+                <LinearLayout
+                    android:id="@+id/llTodayUnderLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <View
+                        android:layout_width="44dp"
+                        android:layout_height="1dp"
+                        android:background="#80FFFFFF"/>
+
+                </LinearLayout>
+
+                <!-- TODAY 제목 -->
+                <TextView
+                    android:id="@+id/tvTodaySubject"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:gravity="center_vertical"
+                    android:textSize="17dp"
+                    android:visibility="gone"/>
+
+                <!-- 사연 내용 -->
+                <LinearLayout
+                    android:id="@+id/postContentLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal">
+
+                    <com.melodigm.post.widget.EllipsizingTextView
+                        android:id="@+id/tvPostContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:textColor="#CCFFFFFF"
+                        android:textSize="13dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- RADIO Player -->
+            <LinearLayout
+                android:id="@+id/radioPlayerLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:id="@+id/rlRadioPlayBtn"
+                    android:layout_width="84dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="onClick">
+
+                    <ImageView
+                        android:id="@+id/ivRadioPlay"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="20dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/bt_rad_play"/>
+
+                    <com.melodigm.post.widget.LetterSpacingTextView
+                        android:id="@+id/tvRadioPlay"
+                        android:layout_width="36dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical"
+                        android:text="@string/play"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="10dp"
+                        android:fontFamily="@font/montserrat_regular"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical">
+
+                    <SeekBar
+                        android:id="@+id/radioPlayProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:paddingEnd="0dp"
+                        android:paddingStart="0dp"
+                        android:progressDrawable="@drawable/seekbar_radio"
+                        android:thumb="@null"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="68dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+
+                    <com.melodigm.post.widget.LetterSpacingTextView
+                        android:id="@+id/tvRadioPlayDuration"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="20dp"
+                        android:gravity="end|center_vertical"
+                        android:text="@string/common_define_play_time"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="10dp"
+                        android:fontFamily="@font/montserrat_regular"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 스토리가 없는 노래 -->
+        <LinearLayout
+            android:id="@+id/llEmptyStoryLayout"
+            android:layout_width="match_parent"
+            android:layout_height="212dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:id="@+id/rlAlbumImage"
+                android:layout_width="match_parent"
+                android:layout_height="168dp">
+
+                <com.melodigm.post.widget.CircularImageView
+                    android:id="@+id/ivAlbumImage"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"/>
+
+            <!-- 노래 제목 / 가수 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSongName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="13dp"/>
+
+                <TextView
+                    android:id="@+id/tvArtiName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textColor="#99FFFFFF"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Fit Space -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Player Timer -->
+        <LinearLayout
+            android:id="@+id/llPlayerTimerLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.melodigm.post.widget.LetterSpacingTextView
+                android:id="@+id/lstvPlayerTimerLostSecondText"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:gravity="end|center_vertical"
+                android:text="@string/common_define_play_time"
+                android:textColor="#FFFFFFFF"
+                android:textSize="8dp"
+                android:fontFamily="@font/montserrat_regular"/>
+
+            <ImageView
+                android:id="@+id/ivPlayerTimerIcon"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="12dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_bt_trel"/>
+
+        </LinearLayout>
+
+        <!-- SeekBar -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:paddingTop="28dp">
+
+                <SeekBar
+                    android:id="@+id/playProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="0dp"
+                    android:progress="50"
+                    android:progressDrawable="@drawable/seekbar_player"
+                    android:thumb="@null"/>
+
+                <com.melodigm.post.widget.LetterSpacingTextView
+                    android:id="@+id/tvPlayingDuration"
+                    android:layout_width="60dp"
+                    android:layout_height="16dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/common_define_play_time"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="8dp"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+                <com.melodigm.post.widget.LetterSpacingTextView
+                    android:id="@+id/tvPlayLeftDuration"
+                    android:layout_width="60dp"
+                    android:layout_height="16dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="end|center_vertical"
+                    android:text="@string/common_define_play_time"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="8dp"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/llPlayThumb"
+                android:layout_width="60dp"
+                android:layout_height="52dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.melodigm.post.widget.LetterSpacingTextView
+                    android:id="@+id/tvPlayDuration"
+                    android:layout_width="60dp"
+                    android:layout_height="16dp"
+                    android:gravity="center"
+                    android:text="@string/common_define_play_time"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="8dp"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"/>
+
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_progbar"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- OST -->
+        <LinearLayout
+            android:id="@+id/llStoryOstLayout"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical"
+            android:paddingEnd="24dp"
+            android:paddingStart="24dp">
+
+            <RelativeLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="20dp">
+
+                <com.melodigm.post.widget.CircularImageView
+                    android:id="@+id/ivOstImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:civ_border_width="0dp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvOstSongName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="13dp"/>
+
+                <TextView
+                    android:id="@+id/tvOstArtiName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#99FFFFFF"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivPostOstTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_title_post"/>
+
+        </LinearLayout>
+
+        <!-- 타이틀 카운트 -->
+        <LinearLayout
+            android:id="@+id/llEmptyStoryOstLayout"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="92dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_title_post"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="437"
+                    android:textColor="#99FFFFFF"
+                    android:textSize="11dp"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="onClick">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/arwright_white"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 구분선 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1AFFFFFF"/>
+
+        </LinearLayout>
+
+        <!-- 좋아요 / 볼륨 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/llPostLikeBtn"
+                android:layout_width="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivPostLikeBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_like_nor"/>
+
+                <TextView
+                    android:id="@+id/tvPostLikeCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/common_define_number"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <SeekBar
+                android:id="@+id/playVolumeBar"
+                android:layout_width="108dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:paddingBottom="16dp"
+                android:paddingEnd="0dp"
+                android:paddingStart="0dp"
+                android:paddingTop="16dp"
+                android:progress="50"
+                android:progressDrawable="@drawable/seekbar_player_volume"
+                android:thumb="@null"
+                android:visibility="gone"/>
+
+            <RelativeLayout
+                android:id="@+id/rlVolumeBtn"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:paddingEnd="2dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_volume"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- 반복 / 랜덤 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rlRepeatBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:id="@+id/ivRepeatBtn"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_rpt_no"/>
+
+            </RelativeLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <RelativeLayout
+                android:id="@+id/rlRandomBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:id="@+id/ivRandomBtn"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_rdm_no"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 재생목록 리스트 -->
+    <com.melodigm.post.widget.dslv.DragSortListView
+        android:id="@+id/lvPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="73dp"
+        android:background="#B3000000"
+        android:cacheColorHint="#00000000"
+        android:divider="#1AFFFFFF"
+        android:dividerHeight="0.5dp"
+        android:listSelector="@android:color/transparent"
+        android:visibility="gone"
+
+        dslv:collapsed_height="2dp"
+        dslv:drag_enabled="true"
+        dslv:drag_handle_id="@id/drag_handle"
+        dslv:drag_scroll_start="0.33"
+        dslv:drag_start_mode="onDown"
+        dslv:float_alpha="0.6"
+        dslv:max_drag_scroll_speed="0.5"
+        dslv:slide_shuffle_speed="0.3"
+        dslv:sort_enabled="true"
+        dslv:track_drag_sort="false"
+        dslv:use_default_controller="true"/>
+
+    <!-- 재생목록 리스트 Empty -->
+    <LinearLayout
+        android:id="@+id/llPlayerListEmptyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B3000000"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="73dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="48dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="20dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_alert"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="@string/msg_player_list_empty"
+                android:textColor="#FFFFFFFF"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- PlayList Header 편집 전 -->
+    <LinearLayout
+        android:id="@+id/llPlayerHeader"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_alignParentTop="true"
+        android:background="#E6111111"
+        android:orientation="horizontal"
+        android:paddingTop="20dp"
+        android:visibility="gone">
+
+        <!-- PlayList Header > 추가 -->
+        <LinearLayout
+            android:id="@+id/llPlayerHeaderAddBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_bt_add"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add"
+                android:textColor="#FFFFFFFF"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+        <!-- PlayList Header > 담기 -->
+        <LinearLayout
+            android:id="@+id/llPlayerHeaderPutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_bt_save"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/put"
+                android:textColor="#FFFFFFFF"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:id="@+id/llPlayerHeaderEditBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:orientation="horizontal"
+            android:paddingEnd="24dp"
+            android:paddingStart="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit"
+                android:textColor="#FFFFFFFF"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- PlayList Header 편집 -->
+    <LinearLayout
+        android:id="@+id/llPlayerHeaderEdit"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_alignParentTop="true"
+        android:background="#E6111111"
+        android:orientation="horizontal"
+        android:paddingTop="20dp"
+        android:visibility="gone">
+
+        <!-- PlayList Header > 전체선택 -->
+        <LinearLayout
+            android:id="@+id/llPlayerHeaderSelectAllBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/bt_icon_all"/>
+
+            <TextView
+                android:id="@+id/tvPlayerHeaderSelectAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/common_select_all"
+                android:textColor="#FFFFFFFF"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+        <!-- PlayList Header > 순서정렬 -->
+        <LinearLayout
+            android:id="@+id/llPlayerHeaderSortBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/bt_icon_array"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/position_sort"
+                android:textColor="#FFFFFFFF"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <RelativeLayout
+            android:id="@+id/llPlayerHeaderEditCloseBtn"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="onClick">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_pop_close"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- Player Control -->
+    <LinearLayout
+        android:id="@+id/llPlayerFooter"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="24dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:orientation="horizontal">
+
+            <!-- 화면 토글 버튼 -->
+            <RelativeLayout
+                android:id="@+id/rlPlayerToggleBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:id="@+id/ivPlayerToggleImage"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/bt_plylist_no"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <!-- 이전 곡 버튼 -->
+                <RelativeLayout
+                    android:id="@+id/rlPrevBtn"
+                    android:layout_width="64dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="onClick">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/bt_player_rw"/>
+
+                </RelativeLayout>
+
+                <!-- 재생 버튼 -->
+                <RelativeLayout
+                    android:id="@+id/rlPlayBtn"
+                    android:layout_width="64dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="onClick">
+
+                    <ImageView
+                        android:id="@+id/ivPlayBtn"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/bt_player_play"/>
+
+                </RelativeLayout>
+
+                <!-- 다음 곡 버튼 -->
+                <RelativeLayout
+                    android:id="@+id/rlNextBtn"
+                    android:layout_width="64dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="onClick">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/bt_player_fw"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- 공유 버튼 -->
+            <RelativeLayout
+                android:id="@+id/rlShareBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/bt_bt_share"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 편집 화면 Footer -->
+    <LinearLayout
+        android:id="@+id/llPlayerEditFooter"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_alignParentBottom="true"
+        android:background="#CC000000"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvSelectCnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFFFF"
+            android:textSize="10dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <!-- 담기 -->
+        <LinearLayout
+            android:id="@+id/llPutBtn"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_bt_save"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"/>
+
+            <TextView
+                android:layout_width="28dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="@string/put"
+                android:textColor="#FFFFFFFF"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+        <!-- 삭제 -->
+        <LinearLayout
+            android:id="@+id/llDeleteBtn"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_close_sm"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"/>
+
+            <TextView
+                android:layout_width="28dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="@string/delete"
+                android:textColor="#FFFFFFFF"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 더보기 팝업 -->
+    <RelativeLayout
+        android:id="@+id/rlMoreLayout"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E6000000">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="73dp"/>
+
+                <!-- 더보기 팝업 > Body -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="129dp"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="28dp"
+                            android:gravity="center_vertical">
+
+                            <com.melodigm.post.widget.LetterSpacingTextView
+                                android:id="@+id/tvMorePostSubject"
+                                android:layout_width="match_parent"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_height="28dp"
+                                android:gravity="start|center"
+                                android:textColor="#FFFFFFFF"
+                                android:textSize="21dp"
+                                android:fontFamily="@font/montserrat_regular"/>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llMorePostSubjectUnderLine"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="44dp"
+                                android:layout_height="1dp"
+                                android:background="#80FFFFFF"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.melodigm.post.widget.EllipsizingTextView
+                            android:id="@+id/tvMorePostContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="20dp"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="13dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- 더보기 팝업 > Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="73dp"
+            android:orientation="horizontal"
+            android:paddingTop="20dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <!-- 더보기 팝업 > Header > 닫기 -->
+            <RelativeLayout
+                android:id="@+id/rlMoreLayoutCloseBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bt_top_close"
+                    android:contentDescription="@string/app_name"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

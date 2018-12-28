@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "153082829807",
+    "project_id": "firebase-post"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153082829807:android:8773ebf01fb1c85d",
+        "android_client_info": {
+          "package_name": "com.melodigm.post"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1E7xgH7SaOtAqxmqNzvecXh9uVEN6Fno"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-81845461-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

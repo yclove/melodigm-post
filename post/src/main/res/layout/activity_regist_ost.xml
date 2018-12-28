@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
+    tools:context=".registration.RegistPostActivity">
+
+    <ImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B3000000"/>
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <requestFocus/>
+
+        <!-- OST 검색 전 레이아웃 -->
+        <LinearLayout
+            android:id="@+id/ostBeforeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:id="@+id/btnOstSearch"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/shape_border">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/hint_ost_subject"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+                <RelativeLayout
+                    android:layout_width="44dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bt_top_search"
+                        android:contentDescription="@string/app_name"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- OST 검색 후 레이아웃 -->
+        <LinearLayout
+            android:id="@+id/ostAfterLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="36dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="24dp">
+
+                <com.melodigm.post.widget.CircularImageView
+                    android:id="@+id/ivOstImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icon_album_dummy"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSongName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="13dp"/>
+
+                <TextView
+                    android:id="@+id/tvArtiName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textColor="#99FFFFFF"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/btnOstSearchRetry"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/bt_change"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llControlLayout"
+            android:layout_width="match_parent"
+            android:layout_height="153dp"
+            android:alpha="0.3"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="34dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/arwup_white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/msg_ost_color_info"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
+                android:gravity="center">
+
+                <com.melodigm.post.widget.ColorIndicatorView
+                    android:id="@+id/choiceColorIndicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:scrollbars="none"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="34dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/arwup_white"/>
+
+                <EditText
+                    android:id="@+id/etOstContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:background="@null"
+                    android:gravity="left|center_vertical"
+                    android:hint="@string/hint_ost_content"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textColor="#FFFFFFFF"
+                    android:textColorHint="#FFFFFFFF"
+                    android:textCursorDrawable="@null"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="280dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:alpha="0.3"
+                android:background="#FFFFFFFF"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/vBlockLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        android:clickable="true"
+        android:visibility="visible"/>
+
+</RelativeLayout>

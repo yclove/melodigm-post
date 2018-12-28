@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menu.MyPostActivity">
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"/>
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:background="#FFFFFFFF"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="56dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <!-- 타임라인 -->
+            <RelativeLayout
+                android:id="@+id/btnTimeLine"
+                android:layout_width="60dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/bt_my_m1"
+                    android:contentDescription="@string/app_name"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:textColor="#FF000000"
+                    android:textSize="10dp"
+                    android:gravity="center"
+                    android:text="@string/menu_timeline"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <!-- 알림센터 -->
+            <RelativeLayout
+                android:id="@+id/btnAlrimCenter"
+                android:layout_width="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/bt_my_m2"
+                    android:contentDescription="@string/app_name"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:textColor="#FF000000"
+                    android:textSize="10dp"
+                    android:gravity="center"
+                    android:text="@string/menu_alrimcenter"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <!-- 내 이용권 -->
+            <RelativeLayout
+                android:id="@+id/btnMyUseCoupon"
+                android:layout_width="60dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/bt_my_m3"
+                    android:contentDescription="@string/app_name"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:textColor="#FF000000"
+                    android:textSize="10dp"
+                    android:gravity="center"
+                    android:text="@string/my_usecoupon"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="48dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <!-- 타임라인 -->
+            <RelativeLayout
+                android:id="@+id/btnCabinet"
+                android:layout_width="60dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/bt_my_m4"
+                    android:contentDescription="@string/app_name"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:textColor="#FF000000"
+                    android:textSize="10dp"
+                    android:gravity="center"
+                    android:text="@string/menu_cabinet"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <!-- 알림센터 -->
+            <RelativeLayout
+                android:id="@+id/btnStamp"
+                android:layout_width="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/bt_my_m5"
+                    android:contentDescription="@string/app_name"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:textColor="#FF000000"
+                    android:textSize="10dp"
+                    android:gravity="center"
+                    android:text="@string/stamp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <!-- 내 이용권 -->
+            <RelativeLayout
+                android:id="@+id/btnPlayHistory"
+                android:layout_width="60dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/bt_my_m6"
+                    android:contentDescription="@string/app_name"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:textColor="#FF000000"
+                    android:textSize="10dp"
+                    android:gravity="center"
+                    android:text="@string/play_history"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

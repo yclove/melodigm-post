@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ostItemLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- 신고하기 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:gravity="center_vertical|end"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvOstRegDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:gravity="center_vertical|end"
+            android:text="@string/app_name"
+            android:textColor="#99000000"
+            android:textSize="9dp"/>
+
+        <ImageView
+            android:id="@+id/btnOstNotify"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/arwdown_black50"/>
+
+        <ImageView
+            android:id="@+id/btnOstDelete"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/bt_del"/>
+
+    </LinearLayout>
+
+    <!-- OST BODY -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="12dp"
+        android:paddingStart="24dp">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp">
+
+            <com.melodigm.post.widget.CircularImageView
+                android:id="@+id/btnOstImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_album_dummy"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSongName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:maxLines="1"
+                android:text="@string/app_name"
+                android:textColor="#FF000000"
+                android:textSize="13dp"/>
+
+            <TextView
+                android:id="@+id/tvArtiName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:maxLines="1"
+                android:text="@string/app_name"
+                android:textColor="#99000000"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/btnOstCngTitle"
+            android:layout_width="64dp"
+            android:layout_height="40dp"
+            android:clickable="true"
+            android:gravity="end|center_vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/ivOstTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_title_post"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btnOstDetail"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:clickable="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bt_ost_more"
+                android:contentDescription="@string/app_name"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- OST 내용 -->
+    <LinearLayout
+        android:id="@+id/ostContLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="12dp"
+        android:paddingEnd="20dp"
+        android:paddingStart="24dp"
+        android:paddingTop="12dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvOstCont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="#99000000"
+            android:textSize="11dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:background="#FFF2F2F2"/>
+
+    <!-- 좋아요 / Reple -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp">
+
+        <ImageView
+            android:id="@+id/btnOstLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:clickable="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_ost_likenor"/>
+
+        <TextView
+            android:id="@+id/tvOstLikeCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/common_define_number"
+            android:textColor="#FF000000"
+            android:textSize="11dp"/>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/tvOstRepleCount"
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:gravity="end|center_vertical"
+            android:text="@string/common_define_number"
+            android:textColor="#FF000000"
+            android:textSize="11dp"/>
+
+        <RelativeLayout
+            android:id="@+id/btnOstReple"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:gravity="right|center_vertical"
+            android:paddingEnd="20dp">
+
+            <ImageView
+                android:id="@+id/ivOstRepleImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_ost_renor"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

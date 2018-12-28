@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llTodayTimeLineItem"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:paddingStart="20dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <com.melodigm.post.widget.LetterSpacingTextView
+        android:id="@+id/lstvTodayRegDate"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/app_name"
+        android:textColor="#80000000"
+        android:textSize="9dp"
+        android:fontFamily="@font/montserrat_regular"/>
+
+    <ImageView
+        android:id="@+id/ivTodayCircle"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:background="#FFFF0000"
+        android:contentDescription="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/tvTodayKWD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="#FF000000"
+        android:textSize="13dp"/>
+
+</LinearLayout>

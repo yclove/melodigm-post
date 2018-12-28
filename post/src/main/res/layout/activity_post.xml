@@ -1,0 +1,1190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/postRootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF000000"
+    tools:context=".PostActivity">
+
+    <!-- 배경 이미지 -->
+    <com.melodigm.post.widget.parallaxscroll.ParallaxImageView
+        android:id="@+id/ivPostRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"/>
+
+    <!-- 사연 뷰페이저 -->
+    <com.melodigm.post.widget.SwipingViewPager
+        android:id="@+id/mMainViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!-- 컬러 필터 레이아웃 -->
+    <LinearLayout
+        android:id="@+id/llFixColorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/rlFixColorBtn"
+            android:layout_width="60dp"
+            android:layout_height="28dp"
+            android:gravity="center"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/ivFixColorCirCle"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="#FFFFFFFF"
+                android:contentDescription="@string/app_name"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- 위치 필터 레이아웃 -->
+    <LinearLayout
+        android:id="@+id/llFixLocationLayout"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="221dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_pin_rel"/>
+
+        <com.melodigm.post.widget.LetterSpacingTextView
+            android:id="@+id/lstvFixLocationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="@string/common_somewhere"
+            android:textColor="#FFFFCC4F"
+            android:textSize="11dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+    </LinearLayout>
+
+    <!-- 사연이 없을 때 레이아웃 -->
+    <LinearLayout
+        android:id="@+id/postEmptyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/postHeader"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_alert"/>
+
+        <TextView
+            android:id="@+id/postEmptyTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="#FFFFFFFF"
+            android:textSize="13dp"/>
+
+        <View
+            android:layout_width="44dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="8dp"
+            android:background="#80FFFFFF"/>
+
+        <TextView
+            android:id="@+id/postEmptyContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="#CCFFFFFF"
+            android:textSize="11dp"/>
+
+    </LinearLayout>
+
+    <!-- TODAY 상단 키워드 뷰페이저 -->
+    <RelativeLayout
+        android:id="@+id/indicatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_below="@+id/postHeader"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="44dp"
+            android:background="#33FFFFFF"/>
+
+        <com.melodigm.post.widget.MultiViewPager
+            android:id="@+id/mTodayHeaderMultiViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:matchChildWidth="@+id/vg_today"/>
+
+    </RelativeLayout>
+
+    <!-- Footer -->
+    <com.melodigm.post.widget.PostFooter
+        android:id="@+id/postFooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"/>
+
+    <!-- POST / RADIO 타임라인 -->
+    <RelativeLayout
+        android:id="@+id/rlPostTimeLineRootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF000000"/>
+
+        <com.melodigm.post.widget.parallaxscroll.ParallaxImageView
+            android:id="@+id/ivPostTimeLineRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llPostTimeLineHeader"
+                android:layout_width="match_parent"
+                android:layout_height="269dp"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:paddingTop="73dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvPostTimeLineDay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/common_define_number"
+                            android:textColor="#FFFFFFFF"
+                            android:textSize="24dp"
+                            android:fontFamily="@font/montserrat_regular"/>
+
+                        <com.melodigm.post.widget.LetterSpacingTextView
+                            android:id="@+id/tvPostTimeLineWeekDayEng"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.6"
+                            android:gravity="center"
+                            android:text="@string/app_name"
+                            android:textColor="#FFFFFFFF"
+                            android:textSize="9dp"
+                            android:fontFamily="@font/montserrat_regular"/>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlCalendarBtn"
+                        android:layout_width="60dp"
+                        android:layout_height="40dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerInParent="true"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/img_time_cal"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"/>
+
+                <!-- Time ViewPager -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp">
+
+                    <com.melodigm.post.widget.wheel.HorizontalWheelView
+                        android:id="@+id/mPostTimeLineTimerHWheelView"
+                        android:layout_width="match_parent"
+                        android:layout_height="72dp"/>
+
+                    <ImageView
+                        android:layout_width="8dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="20dp"
+                        android:src="@drawable/img_time_niddle"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#FFFBF7F2"/>
+
+            <com.melodigm.post.widget.MultiViewPager
+                android:id="@+id/mPostTimeLineMultiViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:background="#FFFBF7F2"
+                app:matchChildWidth="@+id/rlPostTimeLineItem"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:layout_alignParentBottom="true"
+                android:background="#FFFBF7F2"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/btnPostTimeLineFooterSort"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="btnGlobalListener">
+
+                    <ImageView
+                        android:id="@+id/btnPostTimeLineFooterSortImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bt_bt_sort_norb"
+                        android:contentDescription="@string/app_name"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/btnPostTimeLineFooterPostWrite"
+                    android:layout_width="0dp"
+                    android:layout_height="76dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/btnPostTimeLineFooterPostWriteImage"
+                        android:layout_width="32dp"
+                        android:layout_height="36dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/bt_rel_post"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:clickable="true"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- TODAY 타임라인 -->
+    <RelativeLayout
+        android:id="@+id/rlTodayTimeLineRootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E6FFCC4F"
+        android:paddingTop="73dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFFFF">
+
+            <!-- 선택 효과 -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_centerInParent="true"
+                android:background="#FFFBF7F2"/>
+
+            <!-- 고정 그리드라인 -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="139.5dp"
+                android:background="#FFF2F2F2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.melodigm.post.widget.wheel.WheelView
+                    android:id="@+id/mTodayTimeLineGridWheelView"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"/>
+
+                <com.melodigm.post.widget.wheel.WheelView
+                    android:id="@+id/mTodayTimeLineWheelView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <!-- 고정 눈금 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="8dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/img_hniddle"/>
+
+                <LinearLayout
+                    android:id="@+id/llTodayBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="64dp"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="20dp"
+                    android:paddingStart="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.5"
+                        android:text="@string/today_kr"
+                        android:textColor="#FF000000"
+                        android:textSize="11dp"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/arwright_black50"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!-- Header -->
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- OST 팝업 -->
+    <RelativeLayout
+        android:id="@+id/ostRootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFFFF"
+        android:visibility="gone">
+
+        <!-- OST 팝업 > 목록 -->
+        <com.melodigm.post.widget.parallaxscroll.ParallaxListView
+            android:id="@+id/lvOstList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#FFFFFFFF"
+            android:choiceMode="multipleChoice"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            app:parallax_factor="1.9"/>
+
+        <!-- OST 팝업 > Header -->
+        <LinearLayout
+            android:id="@+id/ostHeaderLayout"
+            android:layout_width="match_parent"
+            android:layout_height="73dp"
+            android:background="#E600AFD5"
+            android:orientation="horizontal"
+            android:paddingTop="20dp">
+
+            <!-- OST 팝업 > Header > Menu -->
+            <RelativeLayout
+                android:id="@+id/btnOstHeaderMenu"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/bt_topmenu_nor"
+                    android:contentDescription="@string/app_name"/>
+
+                <FrameLayout
+                    android:id="@+id/ostHeaderMenuLineLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <View
+                        android:id="@+id/ostHeaderMenuLineSt"
+                        android:layout_width="20dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="1dp"
+                        android:background="#00AFD5"
+                        android:visibility="visible"/>
+
+                    <View
+                        android:id="@+id/ostHeaderMenuLineNd"
+                        android:layout_width="20dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="9.5dp"
+                        android:background="#00AFD5"
+                        android:visibility="visible"/>
+
+                    <View
+                        android:id="@+id/ostHeaderMenuLineRd"
+                        android:layout_width="20dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="18dp"
+                        android:background="#00AFD5"
+                        android:visibility="visible"/>
+                </FrameLayout>
+
+            </RelativeLayout>
+
+            <!-- OST 팝업 > Header > 전체선택 -->
+            <LinearLayout
+                android:id="@+id/btnOstSelectAll"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="12dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bt_icon_all"
+                    android:contentDescription="@string/app_name"/>
+
+                <TextView
+                    android:id="@+id/tvOstSelectAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:text="@string/common_select_all"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+            <!-- OST 팝업 > Header > 전체듣기 -->
+            <LinearLayout
+                android:id="@+id/btnOstPlayAll"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="start|center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="8dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bt_icon_play"
+                    android:contentDescription="@string/app_name"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:text="@string/common_play_all"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+            <!-- OST 팝업 > Header > Sort -->
+            <LinearLayout
+                android:id="@+id/btnOstSort"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="end|center_vertical"
+                android:orientation="horizontal">
+
+                <com.melodigm.post.widget.LetterSpacingTextView
+                    android:id="@+id/tvOstSort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="4dp"
+                    android:text="@string/common_like"
+                    android:textColor="#80FFFFFF"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/arwdown_white50"
+                    android:contentDescription="@string/app_name"/>
+
+            </LinearLayout>
+
+            <!-- OST 팝업 > Header > 닫기 -->
+            <RelativeLayout
+                android:id="@+id/btnOstPopupClose"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bt_top_close"
+                    android:contentDescription="@string/app_name"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- Ost List Empty -->
+        <LinearLayout
+            android:id="@+id/ostEmptyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ostHeaderLayout"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/ostEmptyTitle"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:background="#E600AFD5"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/btnOstWriteMove"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/shape_border">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/hint_ost_subject"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="11dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="44dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/bt_top_search"
+                            android:contentDescription="@string/app_name"/>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#FFFFFFFF"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="48dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_alert"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="@string/msg_ost_empty"
+                    android:textColor="#99000000"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- OST 기본 푸터 -->
+        <RelativeLayout
+            android:id="@+id/ostBaseFooter"
+            android:layout_width="match_parent"
+            android:layout_height="92dp"
+            android:layout_alignParentBottom="true"
+            android:background="#CC000000"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/btnOstWrite"
+                android:layout_width="32dp"
+                android:layout_height="36dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/bt_rel_ost"/>
+
+        </RelativeLayout>
+
+        <!-- OST 선택 푸터 -->
+        <LinearLayout
+            android:id="@+id/ostSelectFooter"
+            android:layout_width="match_parent"
+            android:layout_height="92dp"
+            android:layout_alignParentBottom="true"
+            android:background="#CC000000"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvOstSelectCnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/common_define_number"
+                android:textColor="#FFFFFFFF"
+                android:textSize="10dp"
+                android:fontFamily="@font/montserrat_regular"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginStart="12dp"
+                android:background="#80FFFFFF"/>
+
+            <TextView
+                android:id="@+id/tvRightCnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/common_define_number"
+                android:textColor="#FF00AFD5"
+                android:textSize="10dp"
+                android:fontFamily="@font/montserrat_regular"/>
+
+            <RelativeLayout
+                android:id="@+id/rlBuyUseCouponBtn"
+                android:layout_width="96dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/bt_ticket"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:id="@+id/llOstListeningBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_bt_play"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"/>
+
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="@string/listening"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llOstAddBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_bt_add"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"/>
+
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="@string/add"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llOstPutBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_bt_save"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"/>
+
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="@string/put"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- 더보기 팝업 -->
+    <RelativeLayout
+        android:id="@+id/rlMoreLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E6000000">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="73dp"/>
+
+                <!-- 더보기 팝업 > Body -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="129dp"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="28dp"
+                            android:gravity="center_vertical">
+
+                            <com.melodigm.post.widget.LetterSpacingTextView
+                                android:id="@+id/tvMorePostSubject"
+                                android:layout_width="match_parent"
+                                android:layout_height="28dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_marginStart="20dp"
+                                android:gravity="start|center"
+                                android:textColor="#FFFFFFFF"
+                                android:textSize="21dp"
+                                android:fontFamily="@font/montserrat_regular"/>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llMorePostSubjectUnderLine"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="44dp"
+                                android:layout_height="1dp"
+                                android:background="#80FFFFFF"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.melodigm.post.widget.EllipsizingTextView
+                            android:id="@+id/tvMorePostContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="20dp"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="13dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- 더보기 팝업 > Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="73dp"
+            android:orientation="horizontal"
+            android:paddingTop="20dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <!-- 더보기 팝업 > Header > 닫기 -->
+            <RelativeLayout
+                android:id="@+id/rlMoreLayoutCloseBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bt_top_close"
+                    android:contentDescription="@string/app_name"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- 해외 접속 차단 레이아웃 -->
+    <RelativeLayout
+        android:id="@+id/rlLimitServiceLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_int_temp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#B3000000"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!-- 닫기 버튼 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="73dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <RelativeLayout
+                    android:id="@+id/rlLimitServiceCloseBtn"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/ivHeaderTimeLine"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/bt_top_close"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- 로고 -->
+            <RelativeLayout
+                android:layout_width="104dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="51dp">
+
+                <ImageView
+                    android:layout_width="104dp"
+                    android:layout_height="40dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/logo_int_pst"/>
+
+                <ImageView
+                    android:id="@+id/ivRotate"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/logo_int_o"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="@string/limit_service"
+                    android:textColor="#FFD73D66"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.8"
+                    android:gravity="center"
+                    android:text="@string/msg_limit_service"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="12dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:background="#1AFFFFFF"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="172dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:alpha="0.8"
+                android:gravity="center_vertical"
+                android:text="@string/msg_limit_service_detail"
+                android:textColor="#FFFFFFFF"
+                android:textSize="10dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:background="#1AFFFFFF"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <!-- 다음 -->
+            <LinearLayout
+                android:id="@+id/llLimitServiceConfirmBtn"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!-- 지문인식 -->
+                <ImageView
+                    android:id="@+id/fingerprint_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_fp_40px"/>
+
+                <TextView
+                    android:id="@+id/fingerprint_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:gravity="center_vertical"
+                    android:text="Touch sensor"
+                    android:textColor="#42FFFFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="20dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/confirm"
+                    android:textColor="#FF00AFD5"
+                    android:textSize="13dp"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_arrow_blue"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/ivOnAirIcon"
+        android:layout_width="48dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="81dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/icon_onair_pop"
+        android:visibility="gone"/>
+
+</RelativeLayout>

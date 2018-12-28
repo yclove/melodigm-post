@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources>
+    <item name="selected_view" type="id"/>
+
+    <item type="id" name="drag_handle" />
+    <item type="id" name="click_remove" />
+
+    <item name="tag_data" type="id"/>
+    <item name="tag_post_type" type="id"/>
+    <item name="tag_popular_state" type="id"/>
+    <item name="tag_post_data_item" type="id"/>
+    <item name="tag_position" type="id"/>
+    <item name="tag_count" type="id"/>
+    <item name="tag_notify_delete" type="id"/>
+    <item name="tag_poi" type="id"/>
+    <item name="tag_ssi" type="id"/>
+    <item name="tag_bg_user_path" type="id"/>
+    <item name="tag_bg_pic_path" type="id"/>
+    <item name="tag_oti" type="id"/>
+    <item name="tag_ori" type="id"/>
+    <item name="tag_show_map" type="id"/>
+    <item name="tag_like_toggle_yn" type="id"/>
+    <item name="tag_color" type="id"/>
+    <item name="tag_color_hex" type="id"/>
+    <item name="tag_titl_toggle_yn" type="id"/>
+    <item name="tag_dcre_plac_id" type="id"/>
+    <item name="tag_dcre_target_type" type="id"/>
+    <item name="tag_dcre_resn_code" type="id"/>
+    <item name="tag_radio_path" type="id"/>
+    <item name="tag_radio_progressbar" type="id"/>
+    <item name="tag_sort_field" type="id"/>
+    <item name="tag_sort_asc" type="id"/>
+
+    <!-- Calendar -->
+    <item name="mcv_pager" type="id" />
+</resources>

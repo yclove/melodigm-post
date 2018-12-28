@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rlStampChildLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="61dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="24dp"
+        android:paddingEnd="20dp">
+
+        <ImageView
+            android:id="@+id/ivStampType"
+            android:layout_width="40dp"
+            android:layout_height="16dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_tl_post"/>
+
+        <ImageView
+            android:id="@+id/ivStampAction"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_like_rel"/>
+
+        <TextView
+            android:id="@+id/tvStampAction"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="20dp"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="10dp"
+            android:textColor="#FF000000"/>
+
+        <TextView
+            android:id="@+id/tvStampPoint"
+            android:layout_width="32dp"
+            android:layout_height="20dp"
+            android:textColor="#FFD73D66"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="end|center_vertical"
+            android:text="@string/common_define_number"/>
+
+        <ImageView
+            android:id="@+id/ivStampPoint"
+            android:layout_width="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_height="20dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_stamp_plus"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/vStampChildUnderLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:background="#FFF2F2F2"/>
+
+</RelativeLayout>

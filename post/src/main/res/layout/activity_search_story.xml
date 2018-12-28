@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
+    tools:context=".search.SearchStoryActivity">
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E6111111"/>
+
+    <LinearLayout
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:background="#E6111111"
+        android:orientation="vertical">
+        <requestFocus/>
+
+        <!-- 검색 입력창 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:paddingTop="12dp">
+
+            <EditText
+                android:id="@+id/etStoryName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#FFFFFFFF"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingStart="12dp"
+                android:singleLine="true"
+                android:textColor="#FF000000"
+                android:textCursorDrawable="@null"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+        <!-- Header -->
+        <LinearLayout
+            android:id="@+id/llSearchStoryHeader"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="14dp">
+
+            <!-- 카운트 레이아웃 -->
+            <LinearLayout
+                android:id="@+id/llCountLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/songLayout"
+                    android:layout_width="64dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvSong"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/common_song"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="11dp"/>
+
+                    <TextView
+                        android:id="@+id/tvSongCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/common_define_number"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="9dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/albumLayout"
+                    android:layout_width="64dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvAlbum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/common_album"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="11dp"/>
+
+                    <TextView
+                        android:id="@+id/tvAlbumCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/common_define_number"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="9dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/artiLayout"
+                    android:layout_width="64dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvArti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/common_arti"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="11dp"/>
+
+                    <TextView
+                        android:id="@+id/tvArtiCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/common_define_number"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="9dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 해시태그 / 인기 검색어 / 최근 검색어 -->
+            <LinearLayout
+                android:id="@+id/llSearchStoryHeaderTabLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tvHashTagWordBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:text="@string/hashtag"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+                <TextView
+                    android:id="@+id/tvPopSearchWordBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:alpha="0.3"
+                    android:gravity="center"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:text="@string/search_word_pop"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+                <TextView
+                    android:id="@+id/tvLastSearchWordBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:alpha="0.3"
+                    android:gravity="center"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:text="@string/search_word_last"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <!-- 컬러 선택 -->
+            <LinearLayout
+                android:id="@+id/llMusicColorBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="right|center_vertical"
+                android:paddingEnd="24dp"
+                android:paddingStart="24dp">
+
+                <TextView
+                    android:id="@+id/tvMusicColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/color"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+                <ImageView
+                    android:id="@+id/ivMusicColorCircle"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginStart="8dp"
+                    android:background="#FFFFFFFF"
+                    android:contentDescription="@string/app_name"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 해시태그 리스트 레이아웃 -->
+        <LinearLayout
+            android:id="@+id/llHashTagListLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <ListView
+                android:id="@+id/lvHashTagList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:cacheColorHint="#00000000"
+                android:divider="@null"
+                android:dividerHeight="0dp"/>
+
+        </LinearLayout>
+
+        <!-- 인기 검색어 리스트 레이아웃 -->
+        <LinearLayout
+            android:id="@+id/llPopularSearchWordListLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ListView
+                android:id="@+id/lvPopularSearchWordList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:cacheColorHint="#00000000"
+                android:divider="@null"
+                android:dividerHeight="0dp"/>
+
+        </LinearLayout>
+
+        <!-- 최근검색어 리스트 레이아웃 -->
+        <LinearLayout
+            android:id="@+id/llRecentSearchWordListLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ListView
+                android:id="@+id/lvRecentSearchWordList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:cacheColorHint="#00000000"
+                android:divider="@null"
+                android:dividerHeight="0dp"/>
+
+            <TextView
+                android:id="@+id/tvDeleteRecentSearchWordAll"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="#E6111111"
+                android:gravity="center"
+                android:text="@string/btn_delete_recent_all"
+                android:textColor="#FFFFFFFF"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+        <!-- 이야기 검색 목록 -->
+        <LinearLayout
+            android:id="@+id/llSearchStoryListLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- 이야기 검색 목록 > Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:layout_alignParentTop="true"
+                android:background="#1A111111"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvStoryTotalCnt"
+                    android:layout_width="0dp"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="11dp"
+                    android:layout_marginStart="24dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/total_n_count"/>
+
+                <!-- 이야기 검색 목록 > Header > 최신순 -->
+                <LinearLayout
+                    android:id="@+id/llStoryFilterSort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:alpha="0.6"
+                    android:gravity="start|center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="4dp">
+
+                    <TextView
+                        android:id="@+id/tvStoryFilterSort"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="8dp"
+                        android:text="@string/sort_latest"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="11dp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/arwdown_white50"
+                        android:contentDescription="@string/app_name"/>
+
+                </LinearLayout>
+
+                <!-- 이야기 검색 목록 > Header > 전체 -->
+                <LinearLayout
+                    android:id="@+id/llStoryFilterType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:alpha="0.6"
+                    android:gravity="start|center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingEnd="20dp">
+
+                    <com.melodigm.post.widget.LetterSpacingTextView
+                        android:id="@+id/lstvStoryFilterType"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:layout_width="54dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:paddingEnd="8dp"
+                        android:text="@string/all"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="11dp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/arwdown_white50"
+                        android:contentDescription="@string/app_name"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 최근검색어 없을 시, 표시할 영역 -->
+            <LinearLayout
+                android:id="@+id/llEmptyLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFFFF"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="48dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_alert"/>
+
+                <TextView
+                    android:id="@+id/tvEmptyMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
+                    android:text="@string/msg_empty_keyword"
+                    android:textColor="#99000000"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lvSearchStoryList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#FFFFFFFF"
+                android:cacheColorHint="#00000000"
+                android:divider="@null"
+                android:dividerHeight="0dp"/>
+
+        </LinearLayout>
+
+        <!--연관검색어-->
+        <LinearLayout
+            android:id="@+id/llRelatedSearchWordListLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ListView
+                android:id="@+id/lvRelatedSearchWordList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:cacheColorHint="#00000000"
+                android:divider="@null"
+                android:dividerHeight="0dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/dialog_choice_color"
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:layout_marginTop="193dp"/>
+
+</RelativeLayout>

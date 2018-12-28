@@ -1,0 +1,20 @@
+<resources>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="post">#FF00AFD5</color>
+    <color name="radio">#FFF65857</color>
+
+    <color name="dragndrop_background">#e0103010</color>
+
+    <color name="listviewSelectedBase">#99F5DA81</color>
+    <color name="listviewSelectedBlack">#99F5DA81</color>
+
+    <color name="contentLayoutBgColor">#88000000</color>
+    <color name="inputBoxBaseColor">#FFFFFFFF</color>
+    <color name="inputBoxBlackColor">#FF000000</color>
+    <color name="msgBaseColor">#FFFFFFFF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+</resources>

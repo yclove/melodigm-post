@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?><!-- YCNOTE - manifest
+	* 매니패스트 파일은 어플리케이션에 대한 전반적인 정보를 담고 있는 파일로, 어플리케이션이 실행되기 전에 시스템이 알고 있어야 하는 파일이다.
+	* 이 매니페스트 파일 안에는 어플리케이션 컴포넌트(Activity, Service, intents, Content provider, Broadcast Receivers)에 대한 노드를 포함하고 있고
+	* Intent filter 와 같이 permissions 을 사용해 다른 컴포넌트와 어플리케이션이 어떻게 상호 작용을 하는지를 결정한다.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.melodigm.post">
+
+    <!-- YCNOTE - supports-screens
+        * 애플리케이션이 지원하는 스크린 크기를 지정하는 옵션이다.(멀티해상도 관련)
+        * android:smallScreens			: 애플리케이션이 "small"보다 더 작은 스크린을 지원하는지 여부이다. API 레벨 4이상에서는 디폴트 값이 "true"이고 다른 레벨에서는 "false"이다.
+        * android:normalScreens		: 애플리케이션이 "normal" 스크린을 지원하는지 여부이다. 디폴트 값은 "true"이다.
+        * android:largeScreens			: 애플리케이션이 "large"보다 더 큰 스크린을 지원하는지 여부이다. API 레벨 4이상에서는 디폴트 값이 "true"이고 다른 레벨에서는 "false"이다.
+        * android:anyDensity			: 애플리케이션이 임의의 스크린 밀도를 수용할 수 있는 지에 대한 옵션이다. API 레벨 4이상에서는 디폴트 값이 "true"이고 다른 레벨에서는 "false"이다.
+    -->
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <!-- YCNOTE - uses-sdk
+        * Android Version 이 아닌 API 레벨을 설정한다.
+        * android:targetSdkVersion	: 애플리케이션이 타겟으로 하고 있는 API 레벨을 지정하는 함수이다.
+        * android:minSdkVersion		: API 의 최소레벨을 지정하는 함수로 Default 값은 1이다. 시스템이 지정한 값보다 낮은 버전 이라면 시스템에 설치 되지 않는다.
+        * android:maxSdkVersion		: API 의 최대레벨을 지정하는 함수이다. 시스템이 지정한 값보다 높은 버전이라면 시스템에 설치 되지 않는다.
+                                                    : 이 애트리뷰트를 사용하는 것을 권장하지 않는다.
+                                                    : 신규 버전의 안드로이드 플렛폼 배치가 차단되고 더 높은 API 레벨로 시스템이 업데이트 된 이후 사용자의 디바이스에서 maxSdkVersion 이 시스템보다 낮은 값으로 설정된 애플리케이션이 제거된다.
+    -->
+    <!-- uses-sdk android:minSdkVersion="15" android:targetSdkVersion="21" / -->
+
+    <!-- YCNOTE - permission
+		* uses-permission					: 어플리케이션의 필요한 기능의 권한을 정의해준다. 여기에 정의된 권한은 설치 과정 중 사용자에게 보여주고 권한부여 혹은 거절이 결정된다.
+		* permission						    : 컴포넌트를 사용하기 위한 권한 중에 안드로이드가 제공하는 권한 이외에 다른 권한이 필요할 때 정의한다.
+												    : 다른 어플리케이션이 이 컴포넌트를 사용하려면 자신의 매니페스트에 uses-permission 태그를 설정해 주거나<activity android:permission>속성에 권한을 추가해 주면 된다.
+		* uses-feature						: SDK 버전을 선언하는 것과 비슷하게 해당기능을 지원하지 않는 디바이스 상에는 설치가 되지 않도록 하는 옵션이다.
+												    : 예를 들어 디바이스가 카메라를 지원하지 않으면 어플리케이션이 설치 되지 않는다. 애플리케이션이 특정 디바이스를 사용해야 한다면 이 옵션을 추가해야 한다.
+													- android:glEsVersion	: 애플리케이션이 필요로 하는 glEs 버전이다.
+													- android:name			: 애플리케이션이 필요로 하는 기능의 이름으로써 예로 "android.hardware.camera"와 같이 쓰이는데 이것은 애플리케이션이 카메라를 필요로 한다는 의미이다.
+	-->
+    <!-- ################################ [ Android GCM ] -->
+    <permission
+        android:name="com.melodigm.post.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <!-- ################################ [ Google Maps ] -->
+    <permission
+        android:name="com.melodigm.post.locationapi.maps.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+    <permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+
+    <!-- GCM Connection Server 가 전송한 메시지를 다른 앱이 받아서 처리할 수 없도록 추가하는 퍼미션이다. 애플리케이션 패키지는 manifest의 package 속성에 입력한 값을 넣도록 한다. -->
+    <uses-permission android:name="com.melodigm.post.permission.C2D_MESSAGE" />
+    <!-- 안드로이드 앱이 GCM Connection Server에 메시지를 받겠다고 등록하고 또 메시지를 받을 때 필요한 퍼미션이다. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!-- 인터넷 연결을 의미한다. 이는 서드 파티 서버와 GCM Connection Server 연결에 필요하다. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 안드로이드 4.0.4 이상에서는 필요 없지만, 그 이하 버전에서는 구글 계정과 반드시 연결되어 있어야만 푸쉬 메시지를 보낼 수 있기 때문에 필요한 퍼미션이다. 앱의 최소 버전을 4.0.4로 설정했다면 추가하지 않아도 된다. -->
+    <!-- uses-permission android:name="android.permission.GET_ACCOUNTS"/ -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- 디바이스 화면이 꺼져 있거나, 잠겨 있을 때 화면을 켜고 푸쉬 메시지를 표시할 때 필요하다. wake lock이 필요 없다면 추가하지 않아도 된다. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- ################################ [ 네트워크 상태 정보 조회 ] -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- ################################ [ 프로세스 종료 권한 ] -->
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <!-- ################################ [ 작업 정보 조회 ] -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- ################################ [ 전화기 상태 정보(통화중 상태,전화번호,기기 식별자,일련번호 ) 조회 ] -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- ################################ [ 전화걸기 ] -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- ################################ [ WIFI 상태 정보 조회 ] -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- ################################ [ NETWORK_PROVIDER 와 GPS_PROVIDER 를 둘 다 사용 ] -->
+    <!--
+        GPS 위성 신호를 통해 위치 정보를 제공합니다. ACCESS_FINE_LOCATION(android.permission.ACCESS_FINE_LOCATION) 권한이 필요합니다.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--
+        네트워크 정보(Wi-Fi, 기지국 정보)를 이용하여 위치 정보를 제공합니다.
+        Wi-Fi를 통한 위치 확인은 ACCESS_FINE_LOCATION(android.permission.ACCESS_FINE.LOCATION),
+        기지국 정보를 이용한 위치 확인은 ACCESS_COARSE_LOCATION(android.permission, ACCESS_COARSE_LOCATION) 권한이 필요합니다.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- ################################ [ 외부 저장소(SD CARD) 읽기 ] -->
+    <!--
+            4.4 이전버전에서는 파일을 읽어오려면 READ_EXTERNAL_STORAGE 권한이 꼭 필요 했었습니다.
+            권한이 없다면 getExternalStoragePublicDirectory()를 사용할 수 없었습니다.
+            하지만 4.4 킷캣이상부터는 권한이 필요 없이 getExternalFilesDir(String), getExternalCacheDir()를 통해 파일을 가져올 수 있습니다.
+    -->
+    <!-- uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/ -->
+    <!-- ################################ [ 외부 저장소(SD CARD) 쓰기 ] -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- ################################ [ 기본 잠금화면 제거 권한 ] -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
+    <!-- Maps API needs OpenGL ES 2.0. -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <!-- YCNOTE - application
+		* hardwareAccelerated			: 해당 Activity 에 hardware-accelerated OpenGL rendering 을 적용할 것인지 확인(default : false)
+		* parentActivityName			: Android API 16+ 부터는 부모의 Activity 를 지정할 수 있음
+		* largeHeap							: 보통 2배에서 4배까지 dalvik heap 의 최대 크기가 늘어난다. (API 12부터 지원)
+		* exported							: 다른 애플리케이션의 컴포넌트에서 이 액티비티를 런치 할 수 있는지를 설정한다. "false"라면 이 액티비티는 같은 애플리케이션 혹은 같은 유저 ID를 가진 애플리케이션 컴포넌트만 런치 할 수 있다.
+												    : 디폴트는 액티비티가 인텐트 필터를 포함하는지에 달려있다. 필터가 없다면 디폴트 값이 "false"이고 필터가 있다면 "true"이다.
+	-->
+    <application
+        android:name=".BaseApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/Theme.TranslucentDecor">
+
+        <!-- YCNOTE - meta-data
+			* 데이터에 대한 정의나 설명이다. 컴포넌트 엘리먼트는 <meta-data> 서브엘리먼트를 포함할 수 있다. <meta-data>의 모든 값은 하나의 Bundle 로 모아지고 PackageItemInfo.metaData 필드로써 컴포넌트에서 사용할 수 있다.
+			* android:name				: 아이템에 대한 고유한 이름이다. 예를들어 com.example.project.activity.fred 처럼 Java 스타일 naming 규약을 사용해야 한다.
+			* android:resource		: 리소스에 대한 레퍼런스 이다. ID는 Bundle.getInt() 메쏘드에 의해 meta-data Bundle 로 부터 얻을수 있다.
+			* android:value				: 아이템에 할당된 값이다. 아래는 값으로 할당 할수 있는 데이터 타입과 값을 얻기 위해 사용하는 메쏘드들이다.
+												- getString()	: 유니코드 문자를 위한 "\\n" 와 "\\uxxxxx" 같은 이스케이프(escape) 캐릭터에 더블 백슬래시(\\)를 사용하는 문자열 값
+												- getInt()		: "100"같은 정수(integer) 값
+												- getBoolean()	: "참(true)" 또는 "거짓(false)" 중 하나인 boolean 값
+												- getString()	: "#rgb", "#argb", "#rrggbb" 또는 "#aarrggbb" 형식의 컬러 값
+												- getFloat()		: "1.23" 같은 부동소수점 값
+		-->
+        <!--
+            Fabric
+            yclove@melodigm.com(878612422d34b0a3dd5c6cf735686ec3964e2460)
+            dev@melodigm.com(42ca9bb1228ac0985bd45e85b1523918e79dd259)
+        -->
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="42ca9bb1228ac0985bd45e85b1523918e79dd259" />
+
+        <!--
+            Google map v2
+            yclove@melodigm.com(AIzaSyBg2FcoiJywS3qmwRhZ2aveYpp1YfD3jNY)
+            dev@melodigm.com(AIzaSyD1E7xgH7SaOtAqxmqNzvecXh9uVEN6Fno)
+        -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyD1E7xgH7SaOtAqxmqNzvecXh9uVEN6Fno" />
+
+        <!-- 카카오링크 -->
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+
+        <!-- YCNOTE - receiver -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.melodigm.post" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receiver.MusicIntentReceiver">
+            <intent-filter>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receiver.ConnectReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receiver.LockScreenReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_OFF" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receiver.MediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+        <!--<receiver android:name=".receiver.NotificationBroadcast" >
+            <intent-filter>
+                <action android:name="com.melodigm.post.delete" />
+                <action android:name="com.melodigm.post.pause" />
+                <action android:name="com.melodigm.post.next" />
+                <action android:name="com.melodigm.post.play" />
+                <action android:name="com.melodigm.post.previous" />
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>-->
+
+        <!-- YCNOTE - service
+            * 각 서비스마다 <service>태그가 필요하다. 서비스는 백그라운드 오퍼레이션이나 다른 애플리케이션이 호출 할 수 있는 커뮤니케이션 API 를 구현하기 위해 사용된다.
+            * android:icon				: 서비스 아이콘은 이곳에서 설정하던 <application>엘리먼트에서 설정하던 모든 서비스의 인텐트 필터에 대한 디폴트 아이콘이다.
+            * android:label				: 서비스 아이콘은 이곳에서 설정하던 <application>엘리먼트에서 설정하던 모든 서비스의 인텐트 필터에 대한 디폴트 라벨이다.
+            * android:name			    : 서비스를 구현하는 Service 서브클래스의 이름이다. com.example.project.RoomService 처럼 전체 클래스 이름이어야 한다. 하지만 .RoomService와 같이 단축형 이름이라면 <manifest>엘리먼트에 지정된 패키지 이름 끝에 붙여진다.
+            * android:permission		: 서비스를 런치하거나 바인드를 하기 위해 가져야 하는 퍼미션 이름이다. 만약 startsService(), bindService(), stopService()의 호출자가 이 퍼미션을 부여받지 않는다면 이 메쏘느는 작동하지 않으며 인턴트 오브젝트는 서비스에 전달되지 않는다.
+                                                : 이 퍼미션을 설정하지 않으면 <application>퍼미션이 적용되고 <application>퍼미션이 없다면 퍼미션이 적용되지 않는다.
+        -->
+        <!--
+            GCM : dev@melodigm.com
+            Server API Key : AIzaSyAalPzecUuGJBBWaaOXYwOVrsEE7koA03E
+            Sender ID : 800172086312
+        -->
+        <service
+            android:name=".service.PostGcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.PostInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.PostRegistrationIntentService"
+            android:exported="false" />
+
+        <service
+            android:name=".service.MusicService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.melodigm.post.service.MusicService.LAUNCHER" />
+            </intent-filter>
+        </service>
+
+        <!-- 어플리케이션에 링크 되어야 하는 외부 라이브러리를 지정한다. -->
+        <!-- uses-library android:name="com.google.android.maps" /-->
+
+        <!-- YCNOTE - activity
+            * screenOrientation					    : 해당 Activity 에 가로 (landscape), 세로 (portrait), 모두 전환 (sensor : Device 설정과 무관하게 동작), 모두 전환 (unspecified : Device 설정에 따라 동작) 모드를 설정
+            * android:configChanges			    : Activity 가 스스로 handling 할 환경 변화 ( Config Changes ) 를 나열해 주는 곳입니다.
+                                                                : Runtime 시 환경 변화가 일어나면, 기본동작은 activity가 종료되고 재시작되는 것입니다.
+                                                                : 하지만, android:configChanges 에 값을 주면 환경변화가 되어도 activity가 restart 되는 것을 막을 수 있습니다.
+                                                                : 이 때 activity의 onConfigurationChanged() 함수가 대신 호출됩니다.
+                                                                : <주의사항>
+                                                                : 이 attribute 설정은 최후의 수단으로서 선택되어야 하며, 평소에는 이 값을 설정하는 것은 지양되어야 합니다.
+                                                                : 환경 변화에 따른 재시작을 어떻게 더 합리적으로 처리할지에  대한 더 자세한 정보는 Handling Runtim Changes 를 읽어보세요.
+            * android:clearTaskOnLaunch	    : Activity가 re-launch 될때, task에서 root activity 를 제외하고 위에 쌓인 모든 activity instance를 모두 제거한다. ( clear )
+                                                                : (따라서 이 attribute 는 해당 activity가 task 의 root 를 차지하는 경우에만 유효하죠 )
+                                                                : "true" 값일 때 root activity 만 남기고, 이 속성은 root activity 를 실행 시킬 때만 작용을 합니다.
+                                                                : default 값은 "false" 입니다. 그래서 보통 re-launch 하면 마지막으로 보여지던 activity 가 그대로 보여지는 것이죠.
+            * android:windowSoftInputMode	: 소프트 키보드 상태 : 액티비티가 사용자 관심의 포커스를 받을 때 소프트 키보드가 보여지는지 여부를 설정한다.
+                                                                - stateUnspecified	    : 소프트 키보드 상태에 대해 시스템이 적절한상태를 선택하거나 테마 설정값을 따른다. 소프트 키보드의 디폴트 설정 값.
+                                                                - stateUnchanged	    : 소프트 키보드는 마지막 상태로 유지
+                                                                - stateHidden			: 사용자 액티비티를 선택할 때 소프트 키보드는 숨겨짐
+                                                                - stateAlwaysHidden	: 액티비티의 메인 위도우가 입력 포커스를 가질 때 소프트 키보드는 항상 숨겨짐
+                                                                - stateVisible			    : 사용자가 액티비티 메인 위도우 앞으로 갈 때 소프트 키보드 보여짐
+                                                                - stateAlwaysVisible	: 사용자가 액티비티를 선택할 때 소프트 키보드 보여짐
+                                                                - adjustUnspecified	: 스크롤 할 수 잇는 레이아웃 뷰들을 가지고 있다면 윈도우 크기 재조정. 메인 윈도우의 디폴트 값. 시스템이 Pan, Resize등 알아서 선택. 스크롤이 가능한가?, 레이아웃에 여백이 얼마나 있는지 등을 고려해서, 알아서 조정해준다.
+                                                                - adjustResize			: 스크린에 소프트 키보드 공간을 만들기 위해메인 윈도우 크기가 항상 재조정 됨. 뷰의 크기가 작아지죠, 하지만 모든 뷰가 보입니다.
+                                                                - adjustPan				: 소프트 키보드 공간을 만들기 위해 메인 윈도우 크기가 재조정 되지 않음. 포커스를 받은 뷰가 보이게 할려면, 스크롤 하여 이동하여야 합니다. 입력받는 뷰는 보이지만, 다른 뷰들이 가려지는 현상이 있습니다. 다른 뷰들이 보이려면, back키로 키보드를 닫아야 합니다.
+        -->
+        <activity
+            android:name=".PostActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="@string/kakaolink_host"
+                    android:scheme="@string/kakao_scheme" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".LockScreenActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+
+        <activity
+            android:name=".PostDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".PlayerActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".PlayerTimerActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".PostSortActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".OstRepleActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".auth.AuthAdultActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".agreement.AgreementServiceActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".registration.RegistPostUserActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".registration.RegistPostActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".registration.RegistRadioActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".registration.RegistOstActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".registration.InitPostActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".registration.RegistBuyAuthIdAgreeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".registration.RegistBuyAuthIdAuthActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".search.SearchStoryActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".search.SearchLocationActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".search.SearchOstActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".search.SearchMusicActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".sns.SnsAccountSyncActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".sns.SnsAccountRestoreActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".sns.SnsShareActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.MyPostActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.SettingActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.SettingPlayerActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.SettingNotificationActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.SettingAccountActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.GeneralActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.HelpDeskActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.SendMailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.TimeLineActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.NotificationCenterActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.UseCouponActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.CalendarActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.CabinetActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.CabinetDescActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.RegistCabinetActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.StampActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.PlayHistoryActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+        <activity
+            android:name=".menu.BuyUseCouponActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TranslucentDecor" />
+
+        <!--
+            페이스북 앱 ID
+            yclove@melodigm.com(957689324313973)
+            jhjoh@naver.com(1026739400774376)
+        -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            tools:replace="android:theme"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider1026739400774376"
+            android:exported="true" />
+
+        <!--
+            네이버라인
+            yclove7@gmail.com(1472543272)
+            jhjoh@naver.com(1475400188)
+        -->
+        <meta-data
+            android:name="jp.line.sdk.ChannelId"
+            android:value="1475400188" />
+        <meta-data
+            android:name="jp.line.sdk.AuthScheme"
+            android:value="com.melodigm.post" />
+
+        <!--<activity
+            android:name="jp.line.android.sdk.activity.LineAuthCompleteActivity"
+            android:configChanges="keyboard|orientation"
+            android:exported="true"
+            android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="com.melodigm.post" />
+            </intent-filter>
+        </activity>-->
+
+    </application>
+
+</manifest>

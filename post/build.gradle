@@ -1,0 +1,159 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'io.fabric'
+
+repositories {
+    mavenCentral()
+    maven { url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/' }
+}
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.melodigm.post"
+        minSdkVersion 19
+        /**
+         * YCNOTE - 마시멜로우 : targetSdkVersion
+         *
+         * 지금 마시멜로우 폰에서 플레이스토어에 있는 내 앱을 설치하면 오류가 발생할까요?
+         * 그렇지 않습니다.
+         * 안드로이드에서 targetSdkVersion 이 23버전보다 아래라면 앱이 설치되면 모든 권한이 허용되어있는 상태에서 시작합니다.
+         * 아직 마음의 준비가 안되셨다면 targetSdkVersion 을 22로 두고 개발하세요.
+         * 단, 이미 targetSdkVersion 을 23으로 올리셨다면 22로 내릴수 없습니다.
+         * 하지만 위에서 언급한것처럼 사용자가 직접 설정페이지에서 해당 권한을 거부할 수도 있습니다.
+         * 사용자가 수동으로 설정페이지에서 권한을 없애버리면 내 앱은 오류가 발생할까요?
+         * 앱이 오류가 발생해서 죽지는 않습니다. 해당 권한을 사용하는 기능을 사용하지 못할뿐입니다.
+         * 현재 배포되어있는 앱은 오류를 방지하기위한 최소한의 장치로 생각하고 우리는 최대한 빨리 마시멜로우 권한획득에 관한 대응을 해놓아야 합니다.
+         */
+        targetSdkVersion 27
+        multiDexEnabled true
+        versionCode 48
+        versionName '0.4.8'
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            /**
+             * YCNOTE - 프로가드(proguard)
+             *
+             * 하드코딩한 string type 의 요소들은 난독화 되지 않는다.
+             * 그러니 코드를 작성할 때 string 을 하드코딩하지않고 따로 상수 클래스에 모아서 사용하는 것을 추천한다.
+             *
+             * minifyEnabled - true = proguard 적용, false = proguard 미 적용
+             * proguard-android.txt 는 android SDK 폴더의 tools/proguard/proguard-android.txt 에서 수정 할 수 있다.
+             * 추가로 규칙을 정의해 별도로 *-rules.pro 파일을 아래와 같이 적용시켜 주면 기본설정을 변경하지 않고 추가 설정을 할 수 있다
+             */
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            proguardFiles 'proguard-rules.pro'
+            proguardFiles 'etc-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java/']
+        }
+        test {
+            java.srcDirs = ['src/test/java/']
+        }
+        androidTest {
+            java.srcDirs = ['src/androidTest/java/']
+        }
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "POST-${variant.name}-${variant.versionName}.apk"
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    productFlavors {
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    dexOptions {
+        // dex의 크기를 늘리기 위한 설정(2^16개 초과)
+        jumboMode true
+        // 앱 구동 시 자바 할당 힙을 지정
+        javaMaxHeapSize "4g"
+    }
+    useLibrary 'org.apache.http.legacy'
+}
+
+/**
+ YCNOTE - AAR(Android Archive package)
+
+ Android Archive package 의 약자로 안드로이드 Library 용 압축 형태의 파일이다.
+ Java 에서 Library 용으로 자주 사용되는 파일의 확장자는 JAR (Java Archive files) 이다.
+ 안드로이드 AAR 파일은 이와 같은 컨셉으로 사용된다. AAR 파일은 소스코드 뿐만 아니라 안드로이드 Resources 들이 포함된다.
+
+ AAR 파일은 아래 파일들의 압축된 형태를 제공한다.
+ /AndroidManifest.xml (필수)
+ /classes.jar (필수)
+ /res/ (필수)
+ /R.txt (필수)
+ /assets/ (선택)
+ /libs/*.jar (선택)
+ /jni/<abi>/*.so (선택)
+ /proguard.txt (선택)
+ /lint.jar (선택)
+
+ (1) build.gradle 파일의 맨 위 apply plugin: 'com.android.application' 부분을 apply plugin: 'com.android.library'로 수정한다.
+ (2) defaultConfig 부분의 applicationId 라인을 삭제한다.
+ (3) gradle 적용을 위해 상단 Sync Now 를 클릭
+
+ Library Package 파일인 AAR(Android Archive package)파일을 생성한다.
+ Android Studio 창의 우측 끝부분을 보면 Gradle 메뉴가 보인다. 이 아이콘을 클릭한다.
+ 창에 아무것도 뜨지 않는다면 Refresh(새로고침) 아이콘을 클릭하면 Gradle Project 들이 표시된다.
+ 가장 상위에 있는 project 를 클릭하고 4번째 아이콘인 Execute Gradle Task 를 클릭한다.
+ Run Gradle Task 다이얼로그 창의 Command Line에 aR 을 입력하고 실행한다.
+ (aR은 assembleRelease 의 약자로 Release 버전의 AAR 파일을 빌드하는 명령어이다, aR 대신 assembleRelease 를 입력해도 무관하다)
+ 아래와 같이 BUILD SUCCESSFUL 이 보이면 정상적으로 빌드가 완료된 것.
+ 생성된 app-release.aar 파일은 [프로젝트 명]\app\build\outputs\aar 폴더에서 확인가능하다.
+
+ Maven 은 transitive dependencies(의존성 전이)라고 해서 한다리 건너의 의존 라이브러리까지도 알아서 가져오는 기능을 제공합니다.
+ Builder 도 아직 완벽하지는 않지만 의존성 전이를 지원합니다. 바로 transitive 메소드가 있습니다.
+ */
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation 'com.android.support:design:27.0.2'
+    implementation 'com.android.support:multidex:1.0.3'
+    /* test */
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    /* POST */
+    implementation 'com.google.android.gms:play-services-ads:9.0.0'
+    implementation 'com.google.android.gms:play-services-auth:9.0.0'
+    implementation 'com.google.android.gms:play-services-gcm:10.2.1'
+    implementation 'com.google.android.gms:play-services-maps:9.0.0'
+    implementation 'com.google.android.gms:play-services-analytics:9.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.6'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.8'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'gun0912.ted:tedpermission:2.0.0'
+    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
+    implementation group: 'com.kakao.sdk', name: 'kakaolink', version: '1.1.18'
+    implementation 'com.danikula:videocache:2.4.0'
+    /*
+    implementation('com.twitter.sdk.android:twitter:3.3.0@aar') {
+        transitive = true
+    }
+    */
+}

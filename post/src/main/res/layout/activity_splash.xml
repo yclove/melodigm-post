@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF000000"
+    tools:context=".SplashActivity">
+
+    <!--<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_int_temp"/>-->
+
+    <com.melodigm.post.widget.TextureVideoView
+        android:id="@+id/textureVideoView"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B3000000"
+        android:gravity="center_horizontal"
+        android:paddingTop="124dp">
+
+        <ImageView
+            android:layout_width="104dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:src="@drawable/logo_int_pst"/>
+
+        <ImageView
+            android:id="@+id/ivRotate"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:src="@drawable/logo_int_o"/>
+
+        <ImageView
+            android:id="@+id/ivSplashMsg"
+            android:layout_width="96dp"
+            android:layout_height="52dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="245dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_int_text1"/>
+
+        <View
+            android:layout_width="96dp"
+            android:layout_height="1dp"
+            android:background="#1AFFFFFF"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="204dp"/>
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="52dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="112dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_int_text2"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvAppVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFFFF"
+        android:textSize="11dp"
+        android:padding="10dp"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

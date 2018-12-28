@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        YCNOTE - selector
+        android:state_enabled = 현재 사용 가능 상태일 경우 (유/무)
+        android:state_selected = 현재 선택이 된 경우 (유/무)
+        android:state_pressed = 현재 클릭이 된 경우 (유/무)
+        android:state_focused = 현재 포커스를 갖은 경우 (유/무)
+        android:state_checked = 현재 체크 된 경우 (유/무)
+    -->
+    <!-- 평상시 -->
+    <item android:id="@+id/postColorOff" android:state_focused="false" android:state_checked="false">
+        <shape android:shape="oval">
+            <solid android:color="#FFFF0000"/>
+            <corners android:radius="0dp"/>
+            <padding android:bottom="0dp" android:left="0dp" android:right="0dp" android:top="0dp"/>
+            <stroke android:width="0dp" android:color="#FFFFFFFF" />
+        </shape>
+    </item>
+
+    <!-- 클릭했을 때 -->
+    <item android:id="@+id/postColorOn" android:state_focused="false" android:state_checked="true">
+        <shape android:shape="oval">
+            <solid android:color="#FFFF0000"/>
+            <corners android:radius="0dp"/>
+            <padding android:bottom="0dp" android:left="0dp" android:right="0dp" android:top="0dp"/>
+            <stroke android:width="3dp" android:color="#FFFFFFFF" />
+        </shape>
+    </item>
+
+</selector>

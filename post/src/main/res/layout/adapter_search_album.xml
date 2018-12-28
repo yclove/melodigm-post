@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rlAlbumItemLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="61dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="4dp">
+
+        <!-- 앨범 이미지 -->
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.melodigm.post.widget.CircularImageView
+                android:id="@+id/ivImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_album_dummy"/>
+
+        </LinearLayout>
+
+        <!-- 노래 제목 / 가수 명 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSongName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:maxLines="1"
+                android:text="@string/app_name"
+                android:textColor="#FF000000"
+                android:textSize="11dp"/>
+
+            <TextView
+                android:id="@+id/tvArtiName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:lines="1"
+                android:maxLines="1"
+                android:text="@string/app_name"
+                android:textColor="#FF000000"
+                android:textSize="10dp"/>
+
+        </LinearLayout>
+
+        <!-- 재생 시간 -->
+        <TextView
+            android:id="@+id/tvAlbumRegDate"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:alpha="0.5"
+            android:gravity="right"
+            android:text="@string/app_name"
+            android:textColor="#FF000000"
+            android:textSize="10dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <!-- 상세보기 -->
+        <RelativeLayout
+            android:id="@+id/btnOstDetail"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:clickable="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bt_ost_more"
+                android:contentDescription="@string/app_name"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:background="#FFF2F2F2"/>
+
+</RelativeLayout>

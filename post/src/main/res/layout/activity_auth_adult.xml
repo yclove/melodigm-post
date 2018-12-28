@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.AuthAdultActivity"
+    >
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"/>
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:background="#FFFFFFFF"
+        android:orientation="vertical">
+
+        <!-- INFO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_adult_big"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/msg_auth_adult_info"
+                android:textColor="#FF000000"
+                android:textSize="10dp"/>
+
+        </LinearLayout>
+
+        <!-- 이름 -->
+        <EditText
+            android:id="@+id/etAuthAdultName"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/shape_border_1_f2f2f2"
+            android:gravity="center_vertical"
+            android:hint="@string/hint_auth_adult_name"
+            android:inputType="text"
+            android:lines="1"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:textColor="#FF000000"
+            android:textColorHint="#4D000000"
+            android:textCursorDrawable="@null"
+            android:textSize="11dp"/>
+
+        <!-- 생년월일 -->
+        <EditText
+            android:id="@+id/etAuthAdultBirth"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/shape_border_1_f2f2f2"
+            android:gravity="center_vertical"
+            android:hint="@string/hint_auth_adult_birth"
+            android:inputType="number"
+            android:lines="1"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:textColor="#FF000000"
+            android:textColorHint="#4D000000"
+            android:textCursorDrawable="@null"
+            android:textSize="11dp"/>
+
+        <!-- 외국인 등록 번호 -->
+        <EditText
+            android:id="@+id/etAuthAdultForeignerNo"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/shape_border_1_d73d66"
+            android:gravity="center_vertical"
+            android:hint="@string/hint_auth_adult_foreigner_no"
+            android:inputType="number"
+            android:lines="1"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:textColor="#FF000000"
+            android:textColorHint="#FFD73D66"
+            android:textCursorDrawable="@null"
+            android:textSize="11dp"
+            android:visibility="gone"/>
+
+        <!-- 성별 및 내국인 여부 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/shape_border_1_f2f2f2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="28dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="12dp"
+                android:gravity="center_vertical"
+                android:text="@string/gender"
+                android:textColor="#FF000000"
+                android:textSize="11dp"/>
+
+            <LinearLayout
+                android:id="@+id/llAuthAdultMaleBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:alpha="0.3"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="onClick"
+                android:orientation="horizontal"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp">
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/male"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <ImageView
+                    android:id="@+id/ivAuthAdultMaleCircle"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="4dp"
+                    android:background="#FF000000"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llAuthAdultFemaleBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:alpha="0.3"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="onClick"
+                android:orientation="horizontal"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp">
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/female"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <ImageView
+                    android:id="@+id/ivAuthAdultFemaleCircle"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="4dp"
+                    android:background="#FF000000"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <!-- 내국인 / 외국인 -->
+            <LinearLayout
+                android:id="@+id/llAuthAdultForeignBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="onClick"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvAuthAdultForeignText"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center_vertical"
+                    android:text="@string/local"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="12dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/arwdown_black"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 휴대폰 인증 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="24dp"
+            android:gravity="center_vertical"
+            android:text="@string/auth_phone"
+            android:textColor="#FF000000"
+            android:textSize="11dp"/>
+
+        <!-- 휴대폰 번호 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/shape_border_1_f2f2f2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- 휴대폰 앞자리 선택 -->
+            <LinearLayout
+                android:id="@+id/llAuthAdultPhonePrefixBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingEnd="24dp"
+                android:paddingStart="12dp">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/select"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="4dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/arwdown_black"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etAuthAdultPhone"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginEnd="12dp"
+                android:background="#FFFFFFFF"
+                android:hint="@string/hint_auth_adult_phone_no"
+                android:inputType="phone"
+                android:labelFor="@+id/etPostSubject"
+                android:lines="1"
+                android:maxLength="20"
+                android:singleLine="true"
+                android:textColor="#FF000000"
+                android:textColorHint="#4D000000"
+                android:textCursorDrawable="@null"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+        <!-- 인증 번호 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/shape_border_1_f2f2f2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etAuthAdultAuthNo"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:background="#FFFFFFFF"
+                android:hint="@string/hint_auth_adult_auth_no"
+                android:inputType="number"
+                android:labelFor="@+id/etPostSubject"
+                android:lines="1"
+                android:maxLength="20"
+                android:singleLine="true"
+                android:textColor="#FF000000"
+                android:textColorHint="#4D000000"
+                android:textCursorDrawable="@null"
+                android:textSize="11dp"/>
+
+            <TextView
+                android:layout_width="95dp"
+                android:layout_height="match_parent"
+                android:gravity="end|center_vertical"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                android:text="@string/request_auth_no"
+                android:textColor="#FF000000"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+        <!-- 주의 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="24dp"
+            android:gravity="center_vertical"
+            android:text="@string/caution"
+            android:textColor="#FFD73D66"
+            android:textSize="11dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="24dp"
+            android:alpha="0.6"
+            android:gravity="center_vertical"
+            android:text="@string/msg_auth_adult_caution"
+            android:textColor="#FF000000"
+            android:textSize="9dp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlAuthAdultConfirmBtn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:alpha="0.3"
+        android:background="#FF00AFD5"
+        android:clickable="true"
+        android:onClick="onClick">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/confirm"
+            android:textColor="#FFFFFFFF"
+            android:textSize="13dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

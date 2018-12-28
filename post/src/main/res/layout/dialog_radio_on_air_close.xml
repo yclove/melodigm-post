@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B3000000">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#FFFFFFFF"
+        android:minWidth="200dp"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#FFFFFFFF"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="16dp"
+                android:contentDescription="@string/app_name"
+                android:background="@drawable/icon_onair_mini"/>
+
+        </LinearLayout>
+
+        <!-- Content -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:gravity="center_vertical|left"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dialog_radio_on_air_close"
+                android:textColor="#99000000"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+        <!-- Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#FFFFFFFF"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnOnAirPause"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingEnd="12dp"
+                android:gravity="center_vertical|right"
+                android:text="@string/temporary_pause"
+                android:textColor="#FF00afd5"
+                android:textSize="11dp"/>
+
+            <Button
+                android:id="@+id/btnOnAirCancel"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:paddingEnd="24dp"
+                android:background="@null"
+                android:gravity="center_vertical|right"
+                android:text="@string/clear"
+                android:textColor="#FF00afd5"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

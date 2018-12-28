@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menu.RegistCabinetActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/ivCabinetRoot"
+        android:layout_width="match_parent"
+        android:layout_height="193dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"/>
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E6111111"/>
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:orientation="vertical">
+        <requestFocus/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="#E6111111"
+            android:gravity="center_horizontal">
+
+            <com.melodigm.post.widget.CircularImageView
+                android:id="@+id/btnCabinetImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="28dp"
+                app:civ_border_width="0dp"
+                android:src="@drawable/icon_album_dummy"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFFFF"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/etCabinetName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/shape_border_1_f2f2f2"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_cabinet_name"
+                android:lines="1"
+                android:paddingBottom="8dp"
+                android:paddingEnd="12dp"
+                android:inputType="text"
+                android:paddingStart="12dp"
+                android:paddingTop="8dp"
+                android:textColor="#FF000000"
+                android:textCursorDrawable="@null"
+                android:textColorHint="#99000000"
+                android:textSize="11dp"/>
+
+            <EditText
+                android:id="@+id/etCabinetDesc"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/shape_border_1_f2f2f2"
+                android:hint="@string/hint_cabinet_desc"
+                android:paddingBottom="8dp"
+                android:paddingEnd="12dp"
+                android:inputType="text"
+                android:gravity="top|left"
+                android:textCursorDrawable="@null"
+                android:paddingStart="12dp"
+                android:paddingTop="8dp"
+                android:textColor="#FF000000"
+                android:textColorHint="#99000000"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

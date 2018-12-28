@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registration.InitPostActivity">
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF000000"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:background="#FFFFFFFF">
+
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="36dp"
+                android:layout_marginBottom="32dp"
+                android:layout_marginTop="40dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_svc_reset"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/msg_init_info_prefix"
+                android:textColor="#FF000000"
+                android:textSize="11dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="36dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvActStateCnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:text="@string/common_define_number"
+                    android:textColor="#FF00AFD5"
+                    android:textSize="11dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/msg_init_info_suffix"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:background="#FFF2F2F2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="104dp"
+                android:gravity="center"
+                android:text="@string/msg_init_info_notice"
+                android:textColor="#FFD73D66"
+                android:textSize="10dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:background="#FFF2F2F2"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:alpha="0.6"
+                android:gravity="center_vertical"
+                android:text="@string/msg_init_info_notice_detail"
+                android:textColor="#FF000000"
+                android:textSize="9dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:background="#FFF2F2F2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="24dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/msg_agree_all_message"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/rlAgreeInitDataBtn"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/ivAgreeInitDataBtn"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerInParent="true"
+                        android:alpha="0.2"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/bt_agree_bk"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rlInitPostConfirmBtn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FF00AFD5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/confirm"
+            android:textColor="#FFFFFFFF"
+            android:textSize="13dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

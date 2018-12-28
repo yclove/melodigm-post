@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
+    tools:context=".TodayTimeLineActivity">
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E6FFCC4F"/>
+
+    <RelativeLayout
+        android:id="@+id/rlContentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader">
+
+        <!-- 선택 효과 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_centerInParent="true"
+            android:background="#FFFBF7F2"/>
+
+        <!-- 고정 그리드라인 -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="140dp"
+            android:background="#FFF2F2F2"/>
+
+        <com.melodigm.post.widget.wheel.WheelView
+            android:id="@+id/wvToday"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <!-- 고정 눈금 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_height="64dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="8dp"
+                android:layout_centerInParent="true"
+                android:layout_alignParentStart="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/img_hniddle"/>
+
+            <LinearLayout
+                android:id="@+id/llTodayBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:layout_alignParentEnd="true"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF000000"
+                    android:alpha="0.5"
+                    android:textSize="11dp"
+                    android:text="@string/today_kr"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/arwright_black50"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

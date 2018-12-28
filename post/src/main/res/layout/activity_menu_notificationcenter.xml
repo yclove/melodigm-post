@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
+    tools:context=".menu.NotificationCenterActivity">
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E6111111"/>
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:orientation="vertical">
+
+        <!-- 알림센터 Date -->
+        <LinearLayout
+            android:id="@+id/btnCalendarMove"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#E6111111"
+            android:orientation="horizontal"
+            android:paddingBottom="36dp"
+            android:paddingStart="80dp"
+            android:paddingTop="20dp">
+
+            <com.melodigm.post.widget.LetterSpacingTextView
+                android:id="@+id/tvNotificationCenterDay"
+                android:layout_width="40dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="-2dp"
+                android:layout_marginEnd="4dp"
+                android:gravity="center"
+                android:text="@string/common_define_number"
+                android:textColor="#FFFFFFFF"
+                android:textSize="24dp"
+                android:fontFamily="@font/montserrat_regular"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <com.melodigm.post.widget.LetterSpacingTextView
+                    android:id="@+id/tvNotificationCenterWeekDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/app_name"
+                    android:textColor="#99FFFFFF"
+                    android:textSize="9dp"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+                <com.melodigm.post.widget.LetterSpacingTextView
+                    android:id="@+id/tvNotificationCenterDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/app_name"
+                    android:textColor="#4DFFFFFF"
+                    android:textSize="8dp"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/btnNotificationCenterFilter"
+                android:layout_width="60dp"
+                android:layout_height="24dp"
+                android:clickable="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/btnNotificationCenterFilterImage"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/arwdown_white50"
+                    android:contentDescription="@string/app_name"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- 알림센터 Filter -->
+        <LinearLayout
+            android:id="@+id/btnNotificationCenterFilterLayout"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="76dp"
+            android:background="#F2111111"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal">
+
+            <!-- 알림센터 Filter 이용권 -->
+            <RelativeLayout
+                android:id="@+id/btnNotificationCenterFilterUseCoupon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:clickable="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/btnNotificationCenterFilterUseCouponImage"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_card_w"/>
+
+            </RelativeLayout>
+
+            <!-- 알림센터 Filter 대댓글 -->
+            <RelativeLayout
+                android:id="@+id/btnNotificationCenterFilterReple"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:clickable="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/btnNotificationCenterFilterRepleImage"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_ost_rew"/>
+
+            </RelativeLayout>
+
+            <!-- 알림센터 Filter OST -->
+            <RelativeLayout
+                android:id="@+id/btnNotificationCenterFilterOst"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:clickable="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/btnNotificationCenterFilterOstImage"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_ost_nor"/>
+
+            </RelativeLayout>
+
+            <!-- 알림센터 Filter 좋아요 -->
+            <RelativeLayout
+                android:id="@+id/btnNotificationCenterFilterLike"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:clickable="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/btnNotificationCenterFilterLikeImage"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_like_nor"/>
+
+            </RelativeLayout>
+
+            <!-- 알림센터 Filter All -->
+            <RelativeLayout
+                android:id="@+id/btnNotificationCenterFilterAll"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:clickable="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/btnNotificationCenterFilterAllImage"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_chk_white"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- 알림센터 List -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/llNotificationCenterListEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:paddingStart="96dp"
+                android:visibility="gone"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textColor="#CC000000"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:text="@string/msg_timeline_empty_info"/>
+
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lvNotificationCenterList"
+                android:visibility="visible"
+                android:listSelector="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="#FFFFFFFF"
+                android:divider="@null"
+                android:dividerHeight="0dp"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

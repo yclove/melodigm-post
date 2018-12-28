@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/vPlayerTimerCancelBtn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="92dp"
+            android:background="#CC000000"
+            android:gravity="center_vertical"
+            android:paddingTop="4dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <!-- 재생타이머 버튼 -->
+                <LinearLayout
+                    android:id="@+id/llPlayerTimerBtn"
+                    android:layout_width="92dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_bt_tnor"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"/>
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="@string/player_timer"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="11dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <!-- 곡 정보 버튼 -->
+                <LinearLayout
+                    android:id="@+id/llPlayerTimerMusicInfoBtn"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_bt_sinfo"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"/>
+
+                    <TextView
+                        android:layout_width="44dp"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="@string/music_info"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="11dp"/>
+
+                </LinearLayout>
+
+                <!-- 담기 버튼 -->
+                <LinearLayout
+                    android:id="@+id/llPlayerTimerPutBtn"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_bt_save"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"/>
+
+                    <TextView
+                        android:layout_width="44dp"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="@string/put"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="11dp"/>
+
+                </LinearLayout>
+
+                <!-- 공유 버튼 -->
+                <LinearLayout
+                    android:id="@+id/llPlayerTimerShareBtn"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_bt_share"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"/>
+
+                    <TextView
+                        android:layout_width="44dp"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="@string/share"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="11dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

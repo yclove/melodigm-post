@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
+    tools:context=".PostSortActivity">
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e600afd5"/>
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <!-- Motion ViewPager -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <!-- HorizontalScrollView
+                android:id="@+id/motionScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bitmap_repeat" -->
+
+            <com.melodigm.post.widget.MultiViewPager
+                android:id="@+id/motionViewPager"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:matchChildWidth="@+id/vg_cover_motion"/>
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/img_vniddle"/>
+
+        </RelativeLayout>
+
+        <!-- Gender ViewPager -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="44dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                android:background="#FFF2F2F2"/>
+
+            <com.melodigm.post.widget.MultiViewPager
+                android:id="@+id/genderViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:matchChildWidth="@+id/vg_cover"/>
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="32dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/img_vcenter"/>
+
+        </RelativeLayout>
+
+        <!-- Generation ViewPager -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="56dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                android:background="#FFF2F2F2"/>
+
+            <com.melodigm.post.widget.MultiViewPager
+                android:id="@+id/generationViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                app:matchChildWidth="@+id/vg_cover"/>
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="32dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/img_vcenter"/>
+
+        </RelativeLayout>
+
+        <!-- Time ViewPager -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="56dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="35dp"
+                android:background="#FFF2F2F2"/>
+
+            <com.melodigm.post.widget.MultiViewPager
+                android:id="@+id/timeViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                app:matchChildWidth="@+id/vg_cover_multi"/>
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="32dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/img_vcenter"/>
+
+        </RelativeLayout>
+
+        <!-- Location ViewPager -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="36dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                android:background="#FFF2F2F2"/>
+
+            <com.melodigm.post.widget.MultiViewPager
+                android:id="@+id/locationViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                app:matchChildWidth="@+id/vg_cover"/>
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="32dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/img_vcenter"/>
+
+        </RelativeLayout>
+
+        <!-- Footer -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <RelativeLayout
+            android:id="@+id/btnInitSort"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:clickable="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/btnInitSortImage"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/bt_sort_disable"
+                android:contentDescription="@string/app_name"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/postFooterLayout"
+    android:layout_width="match_parent"
+    android:layout_height="92dp"
+    android:background="#4D000000"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/btnFooterSort"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="btnGlobalListener">
+
+        <ImageView
+            android:id="@+id/btnFooterSortImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/bt_bt_sort_nor"
+            android:contentDescription="@string/app_name"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/btnPostWrite"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/btnPostWriteImage"
+            android:layout_width="32dp"
+            android:layout_height="36dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/bt_rel_post"
+            android:contentDescription="@string/app_name"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/btnFooterShare"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bt_bt_share"
+            android:contentDescription="@string/app_name"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

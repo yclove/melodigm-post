@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFFFF"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp">
+
+        <ImageView
+            android:id="@+id/ivPostTypeIcon"
+            android:layout_width="40dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/icon_tl_post"/>
+
+        <!-- 이야기 제목 -->
+        <TextView
+            android:id="@+id/tvStorySubj"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:textSize="11dp"/>
+
+        <TextView
+            android:id="@+id/tvStoryRegDate"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:alpha="0.6"
+            android:gravity="end"
+            android:text="@string/app_name"
+            android:textColor="#FF000000"
+            android:textSize="9dp"/>
+
+    </LinearLayout>
+
+    <!-- 이야기 내용 -->
+    <com.melodigm.post.widget.EllipsizingTextView
+        android:id="@+id/tvStoryCont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:alpha="0.8"
+        android:text="@string/app_name"
+        android:textColor="#FF000000"
+        android:textSize="10dp"/>
+
+    <!-- 좋아요 / OST -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center_vertical"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivStoryLikeIcon"
+            android:layout_width="20dp"
+            android:layout_marginEnd="8dp"
+            android:layout_height="20dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_ost_likenor"/>
+
+        <TextView
+            android:id="@+id/tvStoryLikeCount"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/common_define_number"
+            android:textColor="#FF000000"
+            android:textSize="9dp"/>
+
+        <TextView
+            android:id="@+id/tvStoryOstCount"
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="end"
+            android:text="@string/common_define_number"
+            android:textColor="#FF000000"
+            android:textSize="9dp"/>
+
+        <ImageView
+            android:id="@+id/ivStoryOstIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_ost_grey"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:background="#FFF2F2F2"/>
+
+</LinearLayout>

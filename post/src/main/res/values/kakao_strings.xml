@@ -1,0 +1,16 @@
+<resources>
+    <!--
+        카카오링크
+            yclove7@gmail.com
+                4a0c1c39dbd016997dad967910853467
+                kakao4a0c1c39dbd016997dad967910853467
+                kakaolink
+            jhjoh@naver.com
+                b7452e41bcf4339088f8e7698616acb3
+                kakaob7452e41bcf4339088f8e7698616acb3
+                kakaolink
+    -->
+    <string name="kakao_app_key">b7452e41bcf4339088f8e7698616acb3</string>
+    <string name="kakao_scheme">kakaob7452e41bcf4339088f8e7698616acb3</string>
+    <string name="kakaolink_host">kakaolink</string>
+</resources>

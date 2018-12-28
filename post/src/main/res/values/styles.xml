@@ -1,0 +1,176 @@
+<resources>
+
+    <!-- POST Base Theme -->
+    <style name="Theme.TranslucentDecor" parent="android:Theme.Holo.NoActionBar.TranslucentDecor">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!--<style name="AppTheme" parent="AppTheme.Base"/>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="Theme.TranslucentDecor" parent="AppTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+    </style>-->
+
+    <style name="Theme.HomeScreen" parent="android:Theme.Holo.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.FullScreen" parent="android:Theme.Holo.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.TranslucentStatusBar" parent="@android:style/Theme.Holo.Light.NoActionBar">
+        <!--<item name="android:actionBarStyle">@style/TranslucentActionBar</item>-->
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="TranslucentActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <!-- POST Dialog Theme -->
+    <style name="DialogTheme" parent="android:Theme.Dialog">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+
+    <style name="PostDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/PostDialogAnimation</item>
+    </style>
+
+    <style name="PostDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/static_in</item>
+        <item name="android:windowExitAnimation">@anim/static_out</item>
+    </style>
+
+    <style name="PostDialogSlideAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_down</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_down</item>
+    </style>
+
+    <style name="PostDialogSlideUpAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_up</item>
+    </style>
+
+    <!-- Input Box Define -->
+    <style name="inputBoxBase">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/inputBoxBaseColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">left|center</item>
+    </style>
+
+    <style name="inputBoxBaseCenter">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/inputBoxBaseColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="inputBoxBlack">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/inputBoxBlackColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">left|center</item>
+    </style>
+
+    <style name="inputBoxBlackCenter">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/inputBoxBlackColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- TextView Define -->
+    <style name="smallMsgBase">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/msgBaseColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">left|center</item>
+    </style>
+
+    <style name="smallMsgBaseCenter">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/msgBaseColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="smallMsgBlack">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">left|center</item>
+    </style>
+
+    <style name="smallMsgGray">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">#66000000</item>
+        <item name="android:gravity">left|center</item>
+    </style>
+
+    <style name="smallMsgBlackCenter">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="bigMsgBase">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/msgBaseColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">left|center</item>
+    </style>
+
+    <style name="bigMsgBaseCenter">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/msgBaseColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Calendar -->
+    <style name="TextAppearance.MaterialCalendarWidget.Header"
+           parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.MaterialCalendarWidget.Date"
+           parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textSize">9dp</item>
+        <item name="android:textColor">@color/mcv_text_date_light</item>
+    </style>
+
+    <style name="TextAppearance.MaterialCalendarWidget.WeekDay"
+           parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textSize">9dp</item>
+    </style>
+
+    <!-- SeekBar Volume -->
+    <style name="SeekbarPlayerVolume" parent="@android:style/Widget.SeekBar">
+        <item name="android:progressDrawable">@drawable/seekbar_player_volume</item>
+        <item name="android:minHeight">4dp</item>
+        <item name="android:maxHeight">4dp</item>
+    </style>
+
+</resources>

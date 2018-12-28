@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menu.HelpDeskActivity">
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"/>
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:background="#FFFFFFFF"
+        android:orientation="vertical">
+        <requestFocus/>
+
+        <!-- INFO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="116dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:text="@string/msg_send_mail"
+                android:textColor="#FF000000"
+                android:textSize="11dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:gravity="center"
+                android:text="@string/msg_send_mail_info"
+                android:textColor="#FF000000"
+                android:textSize="9dp"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etSendMail"
+            android:layout_width="match_parent"
+            android:layout_height="192dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@null"
+            android:gravity="top"
+            android:maxLength="1000"
+            android:hint="@string/hint_send_mail"
+            android:padding="12dp"
+            android:textColor="#FF000000"
+            android:textColorHint="#99000000"
+            android:textCursorDrawable="@null"
+            android:textSize="11dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF000000"
+                android:layout_marginEnd="2dp"
+                android:textSize="10dp"
+                android:text="@string/msg_send_mail_prefix"/>
+
+            <TextView
+                android:id="@+id/tvSendMailAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF00AFD5"
+                android:textSize="10dp"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:text="@string/app_name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF000000"
+                android:textSize="10dp"
+                android:text="@string/msg_send_mail_suffix"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="#FFF2F2F2"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlConfirmBtn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:layout_alignParentBottom="true"
+        android:background="#FF00AFD5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/confirm"
+            android:textColor="#FFFFFFFF"
+            android:textSize="13dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

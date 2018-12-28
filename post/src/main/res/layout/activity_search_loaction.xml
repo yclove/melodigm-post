@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".search.SearchLocationActivity">
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E6111111"/>
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <requestFocus/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#E6111111"
+            android:orientation="horizontal"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:paddingTop="12dp">
+
+            <EditText
+                android:id="@+id/etLocationName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#FFFFFFFF"
+                android:gravity="center"
+                android:hint="@string/hint_search_location"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:labelFor="@+id/etPostSubject"
+                android:lines="1"
+                android:maxLength="20"
+                android:singleLine="true"
+                android:textColor="#FF000000"
+                android:textColorHint="#99000000"
+                android:textCursorDrawable="@null"
+                android:textSize="11dp"/>
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lvLocationList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFFFF"
+            android:cacheColorHint="#FFFFFFFF"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

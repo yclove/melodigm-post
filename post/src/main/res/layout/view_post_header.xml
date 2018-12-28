@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/postHeaderLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="73dp"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+
+    <LinearLayout
+        android:id="@+id/btnHeaderTitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:gravity="center">
+
+        <com.melodigm.post.widget.LetterSpacingTextView
+            android:id="@+id/btnHeaderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FFFFFFFF"
+            android:textSize="13dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <ImageView
+            android:id="@+id/btnHeaderTitleClose"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="12dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_close_sm"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/btnHeaderImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <!-- 메뉴 버튼 -->
+    <RelativeLayout
+        android:id="@+id/btnHeaderMenu"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/bt_topmenu_nor"/>
+
+        <FrameLayout
+            android:id="@+id/headerMenuLineLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <View
+                android:id="@+id/headerMenuLineSt"
+                android:layout_width="20dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="1dp"
+                android:background="#FF00AFD5"
+                android:visibility="visible"/>
+
+            <View
+                android:id="@+id/headerMenuLineNd"
+                android:layout_width="20dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="9.5dp"
+                android:background="#FF00AFD5"
+                android:visibility="visible"/>
+
+            <View
+                android:id="@+id/headerMenuLineRd"
+                android:layout_width="20dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="17.8dp"
+                android:background="#FF00AFD5"
+                android:visibility="visible"/>
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <!-- 뒤로가기 버튼 -->
+    <RelativeLayout
+        android:id="@+id/btnHeaderBack"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/bt_top_back"/>
+
+    </RelativeLayout>
+
+    <!-- 확인 버튼 -->
+    <RelativeLayout
+        android:id="@+id/btnHeaderCheck"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:clickable="true"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/bt_top_chk"/>
+
+    </RelativeLayout>
+
+    <!-- 타임라인 버튼 -->
+    <RelativeLayout
+        android:id="@+id/btnHeaderTimeLine"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:clickable="true"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ivHeaderTimeLine"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/bt_top_timerel"/>
+
+    </RelativeLayout>
+
+    <!-- 닫기 버튼 -->
+    <RelativeLayout
+        android:id="@+id/btnHeaderClose"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:clickable="true"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/bt_top_close"/>
+
+    </RelativeLayout>
+
+    <!-- POPULAR 버튼 -->
+    <LinearLayout
+        android:id="@+id/llPopularBtn"
+        android:layout_width="112dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.melodigm.post.widget.LetterSpacingTextView
+            android:id="@+id/lstvPopularText"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/post"
+            android:textColor="#FF00AFD5"
+            android:textSize="11dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/arwdown_white"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

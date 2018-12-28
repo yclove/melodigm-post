@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menu.SettingNotificationActivity">
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"/>
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:background="#FFFFFFFF"
+        android:orientation="vertical">
+
+        <!-- 내 이야기의 소식들 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="24dp"
+            android:paddingStart="24dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notification_post"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.6"
+                    android:text="@string/msg_notification_post"
+                    android:textColor="#FF000000"
+                    android:textSize="10dp"/>
+
+            </LinearLayout>
+
+            <ToggleButton
+                android:id="@+id/tbSettingNotificationPostBtn"
+                android:layout_width="36dp"
+                android:layout_marginStart="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/selector_toggle"
+                android:textOff=""
+                android:textOn=""/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="#FFF2F2F2"/>
+
+        <!-- 내가 등록한 OST의 소식들 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="24dp"
+            android:paddingStart="24dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notification_ost"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.6"
+                    android:text="@string/msg_notification_ost"
+                    android:textColor="#FF000000"
+                    android:textSize="10dp"/>
+
+            </LinearLayout>
+
+            <ToggleButton
+                android:id="@+id/tbSettingNotificationOstBtn"
+                android:layout_width="36dp"
+                android:layout_marginStart="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/selector_toggle"
+                android:textOff=""
+                android:textOn=""/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="#FFF2F2F2"/>
+
+        <!-- 서비스 알림 매너모드 표시 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="24dp"
+            android:paddingStart="24dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notification_service"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.6"
+                    android:text="@string/msg_notification_service"
+                    android:textColor="#FF000000"
+                    android:textSize="10dp"/>
+
+            </LinearLayout>
+
+            <ToggleButton
+                android:id="@+id/tbSettingNotificationServiceBtn"
+                android:layout_width="36dp"
+                android:layout_marginStart="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/selector_toggle"
+                android:textOff=""
+                android:textOn=""/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="#FFF2F2F2"/>
+
+        <!-- TODAY 알림 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="24dp"
+            android:paddingStart="24dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notification_today"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.6"
+                    android:text="@string/msg_notification_today"
+                    android:textColor="#FF000000"
+                    android:textSize="10dp"/>
+
+            </LinearLayout>
+
+            <ToggleButton
+                android:id="@+id/tbSettingNotificationTodayBtn"
+                android:layout_width="36dp"
+                android:layout_marginStart="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/selector_toggle"
+                android:textOff=""
+                android:textOn=""/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="#FFF2F2F2"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

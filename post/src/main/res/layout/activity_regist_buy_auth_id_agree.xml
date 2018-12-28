@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registration.RegistBuyAuthIdAgreeActivity"
+    >
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"/>
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:background="#FFFFFFFF"
+        android:orientation="vertical">
+
+        <!-- INFO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="116dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:text="@string/msg_regist_buy_auth_id_title"
+                android:textColor="#FF000000"
+                android:textSize="11dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:gravity="center"
+                android:text="@string/msg_regist_buy_auth_id_info"
+                android:textColor="#FF000000"
+                android:textSize="9dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="#FFF2F2F2"/>
+
+        <!-- POST 서비스 이용약관 동의 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="24dp">
+
+            <TextView
+                android:id="@+id/tvRegistBuyAuthIdAgreeServiceBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:gravity="center_vertical"
+                android:text="@string/msg_agree_post_service"
+                android:textColor="#FF000000"
+                android:textSize="11dp"/>
+
+            <RelativeLayout
+                android:id="@+id/rlRegistBuyAuthIdAgreeServiceBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:id="@+id/ivRegistBuyAuthIdAgreeServiceBtn"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:alpha="0.2"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/bt_agree_bk"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="#FFF2F2F2"/>
+
+        <!-- POST 개인정보 수집 및 이용 동의 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="24dp">
+
+            <TextView
+                android:id="@+id/tvRegistBuyAuthIdAgreePrivateBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:text="@string/msg_agree_post_private_info"
+                android:textColor="#FF000000"
+                android:textSize="11dp"/>
+
+            <RelativeLayout
+                android:id="@+id/rlRegistBuyAuthIdAgreePrivateInfoBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:id="@+id/ivRegistBuyAuthIdAgreePrivateInfoBtn"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:alpha="0.2"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/bt_agree_bk"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="#FFF2F2F2"/>
+
+        <!-- 만 14세 이상의 개인입니다. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="92dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="24dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/msg_agree_adult_title"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/msg_agree_adult_info"
+                    android:textColor="#FF000000"
+                    android:alpha="0.6"
+                    android:textSize="9dp"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlRegistBuyAuthIdAgreeAdultBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:id="@+id/ivRegistBuyAuthIdAgreeAdultBtn"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:alpha="0.2"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/bt_agree_bk"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="#FFF2F2F2"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlRegistBuyAuthIdAgreeConfirmBtn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:alpha="0.3"
+        android:layout_alignParentBottom="true"
+        android:background="#FF00AFD5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/confirm"
+            android:textColor="#FFFFFFFF"
+            android:textSize="13dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

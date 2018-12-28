@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menu.SettingPlayerActivity">
+
+    <com.melodigm.post.widget.PostHeader
+        android:id="@+id/postHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/postHeader"
+        android:background="#FFFFFFFF">
+
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 스트리밍 음질 선택 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/select_streaming_quality"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#4D000000"/>
+
+                <!-- 스트리밍 음질 선택 > AAC+ -->
+                <LinearLayout
+                    android:id="@+id/llSettingStreamingQualityAACBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="onClick"
+                    android:orientation="horizontal"
+                    android:paddingEnd="24dp"
+                    android:paddingStart="24dp"
+                    android:tag="AAC">
+
+                    <com.melodigm.post.widget.LetterSpacingTextView
+                        android:id="@+id/lstvSettingStreamingQualityAACBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/aac"
+                        android:textColor="#FF000000"
+                        android:textSize="10dp"
+                        android:fontFamily="@font/montserrat_regular"/>
+
+                    <ImageView
+                        android:id="@+id/ivSettingStreamingQualityAACBtn"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_chk_bbig"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFF2F2F2"/>
+
+                <!-- 스트리밍 음질 선택 > MP3 128K -->
+                <LinearLayout
+                    android:id="@+id/llSettingStreamingQuality128Btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="onClick"
+                    android:orientation="horizontal"
+                    android:paddingEnd="24dp"
+                    android:paddingStart="24dp"
+                    android:tag="128">
+
+                    <com.melodigm.post.widget.LetterSpacingTextView
+                        android:id="@+id/lstvSettingStreamingQuality128Btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/mp3_128k"
+                        android:textColor="#FF000000"
+                        android:textSize="10dp"
+                        android:fontFamily="@font/montserrat_regular"/>
+
+                    <ImageView
+                        android:id="@+id/ivSettingStreamingQuality128Btn"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_chk_bbig"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFF2F2F2"/>
+
+                <!-- 스트리밍 음질 선택 > MP3 192K -->
+                <LinearLayout
+                    android:id="@+id/llSettingStreamingQuality192Btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="onClick"
+                    android:orientation="horizontal"
+                    android:paddingEnd="24dp"
+                    android:paddingStart="24dp"
+                    android:tag="192">
+
+                    <com.melodigm.post.widget.LetterSpacingTextView
+                        android:id="@+id/lstvSettingStreamingQuality192Btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/mp3_192k"
+                        android:textColor="#FF000000"
+                        android:textSize="10dp"
+                        android:fontFamily="@font/montserrat_regular"/>
+
+                    <ImageView
+                        android:id="@+id/ivSettingStreamingQuality192Btn"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_chk_bbig"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFF2F2F2"/>
+
+                <!-- 스트리밍 음질 선택 > MP3 320K -->
+                <LinearLayout
+                    android:id="@+id/llSettingStreamingQuality320Btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="onClick"
+                    android:orientation="horizontal"
+                    android:paddingEnd="24dp"
+                    android:paddingStart="24dp"
+                    android:tag="320">
+
+                    <com.melodigm.post.widget.LetterSpacingTextView
+                        android:id="@+id/lstvSettingStreamingQuality320Btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/mp3_320k"
+                        android:textColor="#FF000000"
+                        android:textSize="10dp"
+                        android:fontFamily="@font/montserrat_regular"/>
+
+                    <ImageView
+                        android:id="@+id/ivSettingStreamingQuality320Btn"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_chk_bbig"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFF2F2F2"/>
+
+            </LinearLayout>
+
+            <!-- 재생목록 추가 위치 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/select_play_list_add_position"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#4D000000"/>
+
+                <!-- 재생목록 추가 위치 > 재생목록 맨 위 -->
+                <LinearLayout
+                    android:id="@+id/llSettingPlayListAddPositionTopBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="onClick"
+                    android:orientation="horizontal"
+                    android:paddingEnd="24dp"
+                    android:paddingStart="24dp"
+                    android:tag="TOP">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/play_list_top"
+                        android:textColor="#FF000000"
+                        android:textSize="10dp"/>
+
+                    <ImageView
+                        android:id="@+id/ivSettingPlayListAddPositionTopBtn"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_chk_bbig"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFF2F2F2"/>
+
+                <!-- 재생목록 추가 위치 > 현재 재생 곡 다음 -->
+                <LinearLayout
+                    android:id="@+id/llSettingPlayListAddPositionNextBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="onClick"
+                    android:orientation="horizontal"
+                    android:paddingEnd="24dp"
+                    android:paddingStart="24dp"
+                    android:tag="NEXT">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/play_list_next"
+                        android:textColor="#FF000000"
+                        android:textSize="10dp"/>
+
+                    <ImageView
+                        android:id="@+id/ivSettingPlayListAddPositionNextBtn"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_chk_bbig"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFF2F2F2"/>
+
+                <!-- 재생목록 추가 위치 > 재생목록 맨 아래 -->
+                <LinearLayout
+                    android:id="@+id/llSettingPlayListAddPositionBottomBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="onClick"
+                    android:orientation="horizontal"
+                    android:paddingEnd="24dp"
+                    android:paddingStart="24dp"
+                    android:tag="BOTTOM">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/play_list_bottom"
+                        android:textColor="#FF000000"
+                        android:textSize="10dp"/>
+
+                    <ImageView
+                        android:id="@+id/ivSettingPlayListAddPositionBottomBtn"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_chk_bbig"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFF2F2F2"/>
+
+            </LinearLayout>
+
+            <!-- 재생목록 설정 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/play_list_setting"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#4D000000"/>
+
+                <!-- 재생목록 설정 > 500곡 초과 시 삭제 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingEnd="24dp"
+                    android:paddingStart="24dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/delete_500_list"
+                            android:textColor="#FF000000"
+                            android:textSize="11dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.6"
+                            android:text="@string/msg_delete_500_list"
+                            android:textColor="#FF000000"
+                            android:textSize="10dp"/>
+
+                    </LinearLayout>
+
+                    <ToggleButton
+                        android:id="@+id/tbSettingDelete500ListBtn"
+                        android:layout_width="36dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/selector_toggle"
+                        android:textOff=""
+                        android:textOn=""/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFF2F2F2"/>
+
+            </LinearLayout>
+
+            <!-- 파일 임시저장 설정 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/play_file_save_setting"
+                    android:textColor="#FF000000"
+                    android:textSize="11dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.6"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="@string/msg_play_file_save_setting"
+                    android:textColor="#FF000000"
+                    android:textSize="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#4D000000"/>
+
+                <!-- 파일 임시저장 설정 > 임시저장 사용 설정 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingEnd="24dp"
+                    android:paddingStart="24dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/use_play_file_save"
+                        android:textColor="#FF000000"
+                        android:textSize="11dp"/>
+
+                    <ToggleButton
+                        android:id="@+id/tbSettingUsePlayFileSaveBtn"
+                        android:layout_width="36dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/selector_toggle"
+                        android:textOff=""
+                        android:textOn=""/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFF2F2F2"/>
+
+                <!-- 파일 임시저장 설정 > 단말 용량 확인 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingEnd="24dp"
+                    android:paddingStart="24dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/confirm_device_storage"
+                        android:textColor="#FF000000"
+                        android:textSize="11dp"/>
+
+                    <TextView
+                        android:id="@+id/tvConfirmDeviceStorage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.6"
+                        android:text="@string/confirm_device_storage_val"
+                        android:textColor="#FF000000"
+                        android:textSize="11dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFF2F2F2"/>
+
+                <!-- 파일 임시저장 설정 > 모든 임시저장 파일 삭제 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="24dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/delete_play_file"
+                        android:textColor="#FF000000"
+                        android:textSize="11dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/llDeletePlayFileBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:onClick="onClick"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/delete"
+                            android:layout_marginEnd="8dp"
+                            android:textColor="#FFD73D66"
+                            android:textSize="11dp"/>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/bt_del"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFF2F2F2"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#4D000000"/>
+
+                <!-- 잠금화면 앨범커버 표시 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingEnd="24dp"
+                    android:paddingStart="24dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/display_lock_screen_album"
+                        android:textColor="#FF000000"
+                        android:textSize="11dp"/>
+
+                    <ToggleButton
+                        android:id="@+id/tbSettingDisplayLockScreenAlbumBtn"
+                        android:layout_width="36dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/selector_toggle"
+                        android:textOff=""
+                        android:textOn=""/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFF2F2F2"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

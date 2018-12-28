@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+        YCNOTE - scale
+        fromXScale : 시작하는 X 의 크기
+        toXScale : 끝나는 시점의 X 크기.
+        fromYScale : 시작하는 Y 의 크기.
+        toYScale : 끝나는 시점의 Y 크기
+        pivotX : X 좌표의 중심점
+        pivotY : Y 좌표의 중심점
+        duration : 애니메이션 적용 시간
+        repeatCount : 반복 횟수
+        repeatMode : 반복시 다시 생성될 때 방향
+    -->
+    <scale
+        android:fromXScale="0.0"
+        android:toXScale="1.0"
+        android:fromYScale="1.0"
+        android:toYScale="1.0"
+        android:duration="500"
+        android:repeatCount="infinite"/>
+
+</set>
