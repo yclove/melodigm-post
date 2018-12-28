@@ -6,3 +6,6 @@
 /build
 /captures
 .externalNativeBuild
+POST.dic
+POST.jks
+AndroidManifest.xml
